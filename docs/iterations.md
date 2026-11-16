@@ -1,0 +1,9 @@
+# Imported iteration scopes
+
+These scopes were developed outside this repository and imported in sequence on 16 November 2026. Commit timestamps are actual import times; review-target dates are not historical commit dates. Snapshot branches preserve the earlier source for comparison. The supplied optimized package is the source; no earlier Git history was provided.
+
+| Review target | Increment | Source |
+| --- | --- | --- |
+| 5 November | Core interaction | [Baseline source](https://github.com/sd5913/Hash-Brown-Catch/tree/review/core-interaction) |
+
+- [Progress scope 2026-11-05](progress/2026-11-05.md)

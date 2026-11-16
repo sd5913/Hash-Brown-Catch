@@ -1,0 +1,8 @@
+Actual source-import verification: 2026-11-16 (Hong Kong review context).
+Snapshot: 2026-11-05 review scope.
+
+$ node check-stage.cjs
+PASS Stage 1: scoring, scope gates, collision and applicable progression rules.
+
+JavaScript syntax checks: PASS.
+No live user-study, phone-hardware or Mac/Windows launcher execution is claimed by these results.
