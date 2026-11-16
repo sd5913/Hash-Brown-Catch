@@ -1,5 +1,11 @@
 # Hash Brown Catch — Crunch Club
 
+## Play online
+
+**[▶ PLAY HASH BROWN CATCH](https://sd5913.github.io/Hash-Brown-Catch/game/)**
+
+Open the link above to play directly in your browser. No download or installation is required.
+
 An English pixel-art browser game for casual players who enjoy short, playful challenges. Move a fry basket to catch golden hash browns, avoid burnt bites and bombs, and receive immediate visual and synthesized sound feedback. The red-and-cream diner and expressive potatoes make the interaction easy to recognize and playful to revisit.
 
 ## Current increment
@@ -19,7 +25,7 @@ Prerequisites: Python 3 for local hosting and a modern browser. All runtime asse
 
 Alternatively, from the repository root run `python3 -m http.server 8000` (Windows: `py -3 -m http.server 8000`) and open **http://localhost:8000/game/**. VS Code Live Server can also serve the root. Do not open the HTML using file://. Use another port if 8000 is occupied; browser saves are origin/port-specific.
 
-The source and local run instructions are the reproducible assessment handoff. No live deployment is claimed by this import. Download the current source at [GitHub ZIP](https://github.com/sd5913/Hash-Brown-Catch/archive/refs/heads/main.zip).
+The game is deployed on [GitHub Pages](https://sd5913.github.io/Hash-Brown-Catch/game/). The source and local run instructions also provide a reproducible assessment handoff. Download the current source at [GitHub ZIP](https://github.com/sd5913/Hash-Brown-Catch/archive/refs/heads/main.zip).
 
 ## Controls and feedback
 
