@@ -7,7 +7,7 @@
     hard:{speed:3.25,rate:1.9,hazards:.23,bombShare:.4,duration:60,ramp:.5,description:'Faster falls, more bad bites. Keep your basket moving and your eyes on the golden ones.'},
     hell:{speed:4.4,rate:2.6,hazards:.32,bombShare:.5,duration:60,ramp:.5,description:'The fryer has gone rogue. Fast, crowded, spicy. You have been deliciously warned.'}
   };
-  function config(){return {speed:1.8,rate:.8,hazards:0,bombShare:0,duration:30,ramp:0,description:'Prototype: move, catch and miss. A gentle 30-second interaction test.'};}
+  function config(level,custom){return {...(level==='custom'?{speed:2.4,rate:1.3,hazards:.15,bombShare:.4,duration:60,ramp:.4,...custom}:PRESETS[level]||PRESETS.medium)};}
   function chooseType(cfg,rng=Math.random){if(rng()>=cfg.hazards)return 'golden';return rng()<cfg.bombShare?'bomb':'burnt';}
   function newState(cfg){return {remaining:cfg.duration,elapsed:0,score:0,caught:0,missed:0,hazards:0,streak:0,bestStreak:0,coins:0,coinMultiplier:1,dogCaught:false,slowRemaining:0,shield:0,clockBonus:0,done:false};}
   function resolve(state,type,caught){
@@ -34,7 +34,7 @@
   function bonusType(){return null;}
   function difficultyAt(cfg,elapsed){const progress=Math.min(1,elapsed/cfg.duration);return {speed:cfg.speed*(1+cfg.ramp*progress),rate:cfg.rate*(1+cfg.ramp*.55*progress)};}
   function overlaps(item,basket,previousY){return item.x+item.w*.35>basket.x-basket.w/2&&item.x-item.w*.35<basket.x+basket.w/2&&previousY+item.h/2<=basket.y+12&&item.y+item.h/2>=basket.y;}
-  function recordKey(level,cfg){return 'crunch-course-stage-01-best:'+level+(level==='custom'?':'+[cfg.speed,cfg.rate,cfg.hazards,cfg.duration].join(','):'');}
+  function recordKey(level,cfg){return 'crunch-course-stage-02-best:'+level+(level==='custom'?':'+[cfg.speed,cfg.rate,cfg.hazards,cfg.duration].join(','):'');}
   const api={PRESETS,config,chooseType,newState,resolve,tick,difficultyAt,bonusPlan,bonusType,overlaps,recordKey};
   if(typeof module!=='undefined'&&module.exports)module.exports=api;root.CrunchRules=api;
 })(typeof window!=='undefined'?window:globalThis);

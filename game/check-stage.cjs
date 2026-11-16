@@ -1,6 +1,6 @@
 const assert=require('node:assert/strict');
 const R=require('./game-core.js'), E=require('./economy.js');
-const stage=1;
+const stage=2;
 let s=R.newState(R.config('medium'));R.resolve(s,'golden',true);assert.equal(s.score,10);assert.equal(s.coins,stage>=3?2:0);R.resolve(s,'golden',false);assert.equal(s.score,8);
 for(let i=0;i<10;i++)R.resolve(s,'golden',false);assert.equal(s.score,0);
 let cfg=R.config('medium');assert.equal(cfg.duration,stage===1?30:60);assert.equal(cfg.hazards===0,stage===1);

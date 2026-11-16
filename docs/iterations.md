@@ -5,5 +5,7 @@ These scopes were developed outside this repository and imported in sequence on 
 | Review target | Increment | Source |
 | --- | --- | --- |
 | 5 November | Core interaction | [Baseline source](https://github.com/sd5913/Hash-Brown-Catch/tree/review/core-interaction) |
+| 12 November | Integrated core experience | [Integrated source](https://github.com/sd5913/Hash-Brown-Catch/tree/review/integrated-core) |
 
 - [Progress scope 2026-11-05](progress/2026-11-05.md)
+- [Progress scope 2026-11-12](progress/2026-11-12.md)

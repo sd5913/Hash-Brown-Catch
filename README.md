@@ -4,9 +4,9 @@ An English pixel-art browser game for casual players who enjoy short, playful ch
 
 ## Current increment
 
-**Core interaction baseline.** A gentle 30-second interaction with movement, catching, misses, animation, sound, pause and replay.
+**Integrated core experience.** A complete round with hazards, five difficulty choices, increasing difficulty, pause/results/replay and local personal bests.
 
-Review scope: **5 November 2026**. Source imported on **16 November 2026**, not backdated to the review target. This is a preserved imported baseline.
+Review scope: **12 November 2026**. Source imported on **16 November 2026**, not backdated to the review target. This is a preserved imported baseline.
 
 ## Run the game
 
@@ -37,7 +37,7 @@ The source and local run instructions are the reproducible assessment handoff. N
 
 ## Checks and course mapping
 
-Node.js is optional for automated verification. From `game/`, run `node check-stage.cjs`. These are logic/scope checks, not a substitute for another person using the game.
+Node.js is optional for automated verification. From `game/`, run `node check-stage.cjs` and `node check-rules.cjs`. These are logic/scope checks, not a substitute for another person using the game.
 
 Week 4 input is implemented in `game/game.js`; Week 5 sprites and frame selection are in the same sketch; Week 6 feedback uses synthesized Web Audio. Pure rules are separate in `game/game-core.js`. 
 

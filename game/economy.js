@@ -1,7 +1,7 @@
 /* Persistent cosmetics and wallet. All prices are earned in-game coins. */
 (function(root){
   'use strict';
-  const KEY='crunch-course-stage-01-profile';
+  const KEY='crunch-course-stage-02-profile';
   const CATALOG=[
     {id:'classic',category:'scene',name:'The Original Diner',price:0,description:'Red booths. Golden mornings.',asset:'assets/diner.png'},
     {id:'strawberry',category:'scene',name:'Strawberry Social',price:120,description:'A pink milkshake kind of morning.',asset:'assets/strawberry-diner.png'},
