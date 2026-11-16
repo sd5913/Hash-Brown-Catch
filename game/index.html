@@ -1,72 +1,355 @@
 <!DOCTYPE html>
-
-<html lang="en">
+<html lang="en" translate="no">
 <head>
 <meta charset="utf-8"/>
+<meta content="notranslate" name="google"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="#f9f1df" name="theme-color"/>
-<meta content="Small potato. Big feelings. Catch crispy hash browns, dodge breakfast disasters, and stay golden in this cozy pixel diner game." name="description"/>
-<title>Hash Brown Catch — Stage 02 — Complete round</title>
+<meta content="Small potato. Big feelings. Same-screen 2P co-op &amp; battle, custom pixel potato avatars, wallet shop, and arcade leaderboard." name="description"/>
+<title>Hash Brown Catch — Stage 03 — Wallet shop and playtest</title>
 <link href="assets/favicon.svg" rel="icon" type="image/svg+xml"/>
 <link href="style.css" rel="stylesheet"/>
 <link href="shop.css" rel="stylesheet"/>
+<link href="arcade.css" rel="stylesheet"/>
 <script defer="" src="assets/p5.min.js"></script>
 <script defer="" src="game-core.js"></script>
 <script defer="" src="economy.js"></script>
+<script defer="" src="arcade.js"></script>
 <script defer="" src="game.js"></script>
-
-<style>.stage-banner{padding:10px 18px;text-align:center;background:#733e2b;color:#fff5df;font:600 12px/1.6 monospace;letter-spacing:.04em}.stage-note{padding:14px 18px;background:#fff1cf;border:1px solid #dec9a2;border-radius:10px;font:14px/1.6 monospace;margin:12px 0}.stage-note a{color:#843b24} [hidden]{display:none!important}</style></head>
-<body><div class="stage-banner">STAGE 02 · COMPLETE ROUND · REVIEW TARGET 2026-11-12</div>
+<script defer="" src="shop.js"></script>
+<style>.stage-banner{padding:10px 18px;text-align:center;background:#733e2b;color:#fff5df;font:600 12px/1.6 monospace;letter-spacing:.04em}.stage-note{padding:14px 18px;background:#fff1cf;border:1px solid #dec9a2;border-radius:10px;font:14px/1.6 monospace;margin:12px 0}.stage-note a{color:#843b24} [hidden]{display:none!important}</style>
+</head>
+<body>
+<div class="stage-banner">STAGE 03 · WALLET SHOP AND PLAYTEST · REVIEW TARGET 2026-11-19</div>
 <header class="site-header">
-<a aria-label="Crunch Club home" class="brand" href="#"><span aria-hidden="true" class="brand-mark">✦</span><span>CRUNCH CLUB<small>THE BREAKFAST ARCADE</small></span></a>
-<div class="header-right"><span class="open-sign"><i></i> OPEN FOR GOOD TIMES</span><button aria-label="Open the shop" class="wallet-button" hidden="" id="shop-button" style="display:none!important"><span>SHOP</span> <b>◈ <span id="wallet-coins">000</span></b></button><button class="text-button" id="how-button">How to play <span aria-hidden="true">↗</span></button></div>
+  <a aria-label="Crunch Club home" class="brand" href="#"><span aria-hidden="true" class="brand-mark">✦</span><span>CRUNCH CLUB<small>THE BREAKFAST ARCADE</small></span></a>
+  <div class="header-right">
+    <span class="open-sign"><i></i> OPEN FOR 1P &amp; 2P</span>
+    <button aria-label="Customize pixel potato avatar" class="arcade-pill" id="avatar-button" type="button"><i aria-hidden="true">✦</i><span>PIXEL FACE</span></button>
+    <button aria-label="Open Hall of Fame leaderboard" class="arcade-pill" id="leaderboard-button" type="button"><i aria-hidden="true">♛</i><span>TOP BOARD</span></button>
+    <button aria-label="Open the shop" class="wallet-button" id="shop-button" type="button"><span>SHOP</span> <b>◈ <span id="wallet-coins">000</span></b></button>
+    <button class="text-button" id="how-button" type="button">How to play <span aria-hidden="true">↗</span></button>
+  </div>
 </header>
 <main>
 <section aria-labelledby="page-title" class="intro">
-<div><p class="eyebrow"><span class="checker-mini"></span> FRESH OUT OF THE PIXEL FRYER</p><h1 id="page-title">HASH BROWN <span>CATCH!</span></h1><p class="intro-copy">Catch the crunch. Dodge the chaos. Save a little potato.</p></div>
-<div class="intro-stamp"><span>100% CRISPY</span><strong>0% SERIOUS</strong><span class="stamp-stars">✦   ✦   ✦</span></div>
+  <div>
+    <p class="eyebrow"><span class="checker-mini"></span> FRESH OUT OF THE PIXEL FRYER · 1P / 2P SAME-SCREEN</p>
+    <h1 id="page-title">HASH BROWN <span>CATCH!</span></h1>
+    <p class="intro-copy">Put your pixel face on a potato. Team up or bump baskets in 2P. Climb the Hall of Fame!</p>
+  </div>
+  <div class="intro-stamp"><span>100% CRISPY</span><strong>1P &amp; 2P</strong><span class="stamp-stars">✦ &nbsp; ✦ &nbsp; ✦</span></div>
 </section>
 <section aria-label="Breakfast arcade" class="game-layout">
 <div class="game-shell">
-<div class="scoreboard">
-<div class="score-cell"><span>SCORE</span><strong id="score">000</strong></div>
-<div class="score-cell best-cell"><span>PERSONAL BEST</span><strong id="best">000</strong></div>
-<div class="score-cell coin-cell" hidden="" style="display:none!important"><span>RUN COINS</span><strong id="run-coins">000</strong></div><div class="timer-cell"><span>TIME LEFT</span><strong id="timer">01:00</strong></div>
-<div class="game-controls"><button aria-label="Mute sound" aria-pressed="false" class="icon-button" id="sound-button" title="Mute sound">♪</button><button aria-label="Pause game" class="icon-button" disabled="" id="pause-button" title="Pause game">Ⅱ</button><button aria-label="Enter fullscreen" class="icon-button" id="fullscreen-button" title="Fullscreen">⛶</button></div>
-</div>
-<div class="playfield" id="playfield">
-<div aria-label="Game canvas: drag your basket left and right to catch golden hash browns" id="canvas-host" role="application" tabindex="0"></div>
-<div class="screen-layer" id="start-screen">
-<div class="welcome-card">
-<div class="welcome-art"><canvas aria-label="Crispy the happy golden hash brown" class="mascot-art" height="200" width="180"></canvas><span class="mascot-bubble">catch me,<br/>pretty please?</span><span class="sparkle sparkle-one">✦</span><span class="sparkle sparkle-two">✧</span></div>
-<div class="welcome-copy"><p class="mini-label">NOW SERVING</p><h2>A LITTLE CRUNCH.<br/>A LOT OF JOY.</h2><p>One basket. A sky full of potatoes. Catch golden bites and keep your score growing.</p><button class="primary-button" id="start-button"><span aria-hidden="true">▶</span> LET'S GET CRISPY</button><span class="start-note" id="start-note">60 SEC · MEDIUM · +10 PER CATCH</span></div>
-</div>
-</div>
-<div class="screen-layer" hidden="" id="pause-screen"><div class="modal-card pause-card"><span class="mini-label">TAKE A LITTLE BREATHER</span><h2>ON A<br/>COFFEE BREAK.</h2><p>Your potatoes can wait. So can the timer.</p><button class="primary-button" id="resume-button">▶ BACK TO THE CRUNCH</button><button class="text-button" id="quit-button">End this run</button></div></div>
-<div class="screen-layer" hidden="" id="results-screen"><div class="modal-card results-card"><p class="mini-label" id="result-eyebrow">ORDER UP!</p><h2 id="result-heading">STAY GOLDEN.</h2><div class="result-score"><span>YOUR SCORE</span><strong id="final-score">000</strong></div><div class="earnings-receipt" hidden="" style="display:none!important"><strong id="round-earnings">+0 COINS BANKED</strong><span id="round-boost"></span><span id="result-wallet">WALLET 0 COINS</span><button class="text-button" id="results-shop-button">Spend your coins in the shop ↗</button></div><p id="result-message">Small potato. Big achievement.</p><div class="result-stats"><div><strong id="final-caught">0</strong><span>CAUGHT</span></div><div><strong id="final-missed">0</strong><span>MASHED</span></div><div><strong id="final-hazards">0</strong><span>OOPSIES</span></div><div><strong id="final-streak">0</strong><span>BEST STREAK</span></div></div><p class="record-message" id="record-message"></p><button class="primary-button" id="replay-button">↻ PLAY AGAIN</button><button class="text-button" id="menu-button">Back to the menu</button></div></div>
-<div class="loading-error" hidden="" id="loading-error">Our fryer needs a moment. Please reload to try again.</div>
-<span class="live-badge" hidden="" id="live-badge">MEDIUM RUSH</span>
-<span class="combo-badge" hidden="" id="combo-badge">5 IN A ROW!</span><span aria-live="polite" class="power-status" id="power-status"></span>
-</div>
-<div class="game-bottom"><span><b class="status-dot"></b><span id="game-status">YOUR BASKET IS READY</span></span><span class="controls-hint"><kbd>←</kbd><kbd>→</kbd> or drag to move <span class="desktop-hint">· <kbd>SPACE</kbd> to pause</span></span></div>
+  <div class="scoreboard">
+    <div class="score-cell" id="primary-score-cell"><span id="score-label">SCORE</span><strong id="score">000</strong></div>
+    <div class="score-cell best-cell" id="secondary-score-cell"><span id="best-label">PERSONAL BEST</span><strong id="best">000</strong></div>
+    <div class="score-cell coin-cell"><span>RUN COINS</span><strong id="run-coins">000</strong></div>
+    <div class="timer-cell"><span>TIME LEFT</span><strong id="timer">01:00</strong></div>
+    <div class="game-controls">
+      <button aria-label="Mute sound" aria-pressed="false" class="icon-button" id="sound-button" title="Mute sound" type="button">♪</button>
+      <button aria-label="Pause game" class="icon-button" disabled="" id="pause-button" title="Pause game (SPACE)" type="button">Ⅱ</button>
+      <button aria-label="Exit to menu (ESC)" class="icon-button exit-btn" disabled="" id="exit-button" title="Exit to menu (ESC)" type="button">✕</button>
+      <button aria-label="Enter fullscreen" class="icon-button" id="fullscreen-button" title="Fullscreen" type="button">⛶</button>
+    </div>
+  </div>
+  <div class="playfield" id="playfield">
+    <div aria-label="Game canvas: move baskets to catch golden hash browns" id="canvas-host" role="application" tabindex="0"></div>
+    <div class="screen-layer" id="start-screen">
+      <div class="welcome-card">
+        <div class="welcome-art" id="welcome-art">
+          <div class="welcome-duo">
+            <canvas aria-label="Player 1 pixel hash brown mascot" class="mascot-art" height="200" id="mascot-art-p1" width="180"></canvas>
+            <canvas aria-label="Player 2 pixel hash brown mascot" class="mascot-art duo-secondary" height="200" hidden="" id="mascot-art-p2" width="180"></canvas>
+          </div>
+          <span class="mascot-bubble" id="mascot-bubble">put your face<br/>on me!</span>
+          <span class="sparkle sparkle-one">✦</span>
+          <span class="sparkle sparkle-two">✧</span>
+        </div>
+        <div class="welcome-copy">
+          <p class="mini-label" id="welcome-mode-pill">NOW SERVING · 1P SOLO</p>
+          <h2>A LITTLE CRUNCH.<br/>A LOT OF JOY.</h2>
+          <p id="welcome-desc">Upload your selfie into a pixel potato, battle or co-op on one screen, and climb the Hall of Fame.</p>
+          <button class="primary-button" id="start-button" type="button"><span aria-hidden="true">▶</span> LET'S GET CRISPY</button>
+          <div class="welcome-quick-actions">
+            <button class="chip-button" id="welcome-avatar-button" type="button">✦ PIXEL AVATAR</button>
+            <button class="chip-button" id="welcome-mode-button" type="button">⇄ MODE: 1P SOLO</button>
+            <button class="chip-button" id="welcome-board-button" type="button">♛ LEADERBOARD</button>
+          </div>
+          <span class="start-note" id="start-note">60 SEC · MEDIUM · 1P SOLO · ESC TO EXIT</span>
+        </div>
+      </div>
+    </div>
+    <div class="screen-layer" hidden="" id="pause-screen">
+      <div class="modal-card pause-card">
+        <span class="mini-label">TAKE A LITTLE BREATHER</span>
+        <h2>ON A<br/>COFFEE BREAK.</h2>
+        <p>Your potatoes can wait. Press SPACE to resume, or ESC to exit straight to the menu.</p>
+        <button class="primary-button" id="resume-button" type="button">▶ BACK TO THE CRUNCH</button>
+        <button class="text-button" id="quit-button" type="button">Finish run &amp; view results</button>
+        <button class="text-button" id="pause-exit-button" type="button">Exit to main menu (ESC)</button>
+      </div>
+    </div>
+    <div class="screen-layer" hidden="" id="results-screen">
+      <div class="modal-card results-card">
+        <p class="mini-label" id="result-eyebrow">ORDER UP!</p>
+        <h2 id="result-heading">STAY GOLDEN.</h2>
+        <div class="duel-summary" hidden="" id="duel-summary">
+          <div class="duel-side p1" id="duel-p1-card">
+            <canvas height="52" id="duel-p1-canvas" width="40"></canvas>
+            <span id="duel-p1-name">P1</span>
+            <strong id="duel-p1-score">000</strong>
+          </div>
+          <div class="duel-vs" id="duel-vs-label">VS</div>
+          <div class="duel-side p2" id="duel-p2-card">
+            <canvas height="52" id="duel-p2-canvas" width="40"></canvas>
+            <span id="duel-p2-name">P2</span>
+            <strong id="duel-p2-score">000</strong>
+          </div>
+        </div>
+        <div class="result-score"><span id="result-score-caption">YOUR SCORE</span><strong id="final-score">000</strong></div>
+        <div class="board-submit-box">
+          <div class="board-submit-row">
+            <input aria-label="Leaderboard player or team name" id="board-name-input" maxlength="12" placeholder="CRISPY P1" type="text"/>
+            <button class="small-button" id="board-save-button" type="button">♛ SAVE TO BOARD</button>
+            <button class="text-button" id="results-board-button" type="button">Leaderboard ↗</button>
+          </div>
+          <span class="board-save-status" id="board-save-status">Record your pixel potato on the Hall of Fame!</span>
+        </div>
+        <div class="earnings-receipt">
+          <strong id="round-earnings">+0 COINS BANKED</strong>
+          <span id="round-boost"></span>
+          <span id="result-wallet">WALLET 0 COINS</span>
+          <button class="text-button" id="results-shop-button" type="button">Spend your coins in the shop ↗</button>
+        </div>
+        <p id="result-message">Small potato. Big achievement.</p>
+        <div class="result-stats">
+          <div><strong id="final-caught">0</strong><span>CAUGHT</span></div>
+          <div><strong id="final-missed">0</strong><span>MASHED</span></div>
+          <div><strong id="final-hazards">0</strong><span>OOPSIES</span></div>
+          <div><strong id="final-streak">0</strong><span id="final-fourth-label">BEST STREAK</span></div>
+        </div>
+        <p class="record-message" id="record-message"></p>
+        <button class="primary-button" id="replay-button" type="button">↻ PLAY AGAIN · R</button>
+        <button class="text-button" id="menu-button" type="button">Back to the menu · ESC</button>
+      </div>
+    </div>
+    <div class="loading-error" hidden="" id="loading-error">Our fryer needs a moment. Please reload to try again.</div>
+    <span class="live-badge" hidden="" id="live-badge">MEDIUM RUSH</span>
+    <span class="combo-badge" hidden="" id="combo-badge">5 IN A ROW!</span>
+    <span aria-live="polite" class="power-status" id="power-status"></span>
+  </div>
+  <div class="game-bottom">
+    <span><b class="status-dot"></b><span id="game-status">YOUR BASKET IS READY</span></span>
+    <span class="controls-hint" id="controls-hint"><kbd>←</kbd><kbd>→</kbd> / <kbd>A</kbd><kbd>D</kbd> move <span class="desktop-hint">· <kbd>SPACE</kbd> pause · <kbd>ESC</kbd> exit</span></span>
+  </div>
+  <div class="stage-note" role="note">QUICK GUIDE · 1P Solo or Same-Screen 2P (VS Basket Bump / Co-op Relay +5) · Upload photo in <b>PIXEL FACE</b> to generate your pixel hash brown · Giant Final 5s Countdown · Press <b>ESC</b> anytime to exit to menu · Press <b>R</b> on results to replay.</div>
 </div>
 <aside aria-labelledby="difficulty-heading" class="order-panel">
-<div class="panel-top"><span>YOUR ORDER</span><span>№ 001</span></div>
-<div class="panel-content"><p class="mini-label">HOW CRISPY CAN YOU GO?</p><h2 id="difficulty-heading">PICK YOUR <br/>BREAKFAST RUSH.</h2><div aria-label="Choose difficulty" class="difficulty-list" role="group">
-<button aria-pressed="false" class="difficulty" data-level="easy"><span class="level-icon">☀</span><span><strong>EASY</strong><small>A slow, sunny morning</small></span><span class="level-dots">●○○○</span></button>
-<button aria-pressed="true" class="difficulty selected" data-level="medium"><span class="level-icon">✦</span><span><strong>MEDIUM</strong><small>A little breakfast bustle</small></span><span class="level-dots">●●○○</span></button>
-<button aria-pressed="false" class="difficulty" data-level="hard"><span class="level-icon">ϟ</span><span><strong>HARD</strong><small>The diner is getting busy</small></span><span class="level-dots">●●●○</span></button>
-<button aria-pressed="false" class="difficulty" data-level="hell"><span class="level-icon">♨</span><span><strong>HELL</strong><small>Someone broke the fryer</small></span><span class="level-dots">●●●●</span></button>
-<button aria-pressed="false" class="difficulty custom-choice" data-level="custom"><span class="level-icon">⚙</span><span><strong>CUSTOM</strong><small>Your kitchen. Your rules.</small></span><span class="custom-arrow">↗</span></button>
-</div><div class="custom-settings" hidden="" id="custom-settings"><label>FALL SPEED <output id="speed-value">2.4×</output><input id="speed-setting" max="6" min="0.7" step="0.1" type="range" value="2.4"/></label><label>DROPS / SECOND <output id="rate-value">1.3</output><input id="rate-setting" max="4" min="0.5" step="0.1" type="range" value="1.3"/></label><label>HAZARDS <output id="hazards-value">15%</output><input id="hazards-setting" max="45" min="0" step="1" type="range" value="15"/></label><label>ROUND LENGTH<select id="duration-setting"><option value="30">30 seconds</option><option selected="" value="60">60 seconds</option><option value="90">90 seconds</option><option value="120">120 seconds</option></select></label></div>
-<div class="order-summary"><div><span>ROUND LENGTH</span><strong id="round-summary">60 SEC</strong></div><div><span>STARTING SPEED</span><strong id="speed-summary">2.4×</strong></div><div><span>BAD BITES</span><strong id="hazard-summary">15%</strong></div></div><p class="difficulty-description" id="difficulty-description">A balanced rush, with a few burnt bites and the occasional chili bomb.</p><p class="locked-note" hidden="" id="locked-note">Kitchen settings are locked during a run.</p><div class="panel-footer">MADE FRESH. PLAYED HAPPY.<span>✦   ✦   ✦</span></div></div>
+  <div class="panel-top"><span>YOUR ORDER</span><span>№ 001</span></div>
+  <div class="panel-content">
+    <div class="mode-selector-block">
+      <p class="mini-label">SAME-SCREEN TABLE</p>
+      <div aria-label="Choose player mode" class="mode-tabs" role="group">
+        <button aria-pressed="true" class="mode-tab selected" data-play-mode="1p" type="button"><strong>1P SOLO</strong><small>Classic</small></button>
+        <button aria-pressed="false" class="mode-tab" data-play-mode="2p-vs" type="button"><strong>2P VS</strong><small>Bump PK</small></button>
+        <button aria-pressed="false" class="mode-tab" data-play-mode="2p-coop" type="button"><strong>2P CO-OP</strong><small>Relay +5</small></button>
+      </div>
+      <p class="mode-note" id="mode-description">Classic solo basket. Move with arrows, A/D, or drag.</p>
+    </div>
+    <p class="mini-label">HOW CRISPY CAN YOU GO?</p>
+    <h2 id="difficulty-heading">PICK YOUR <br/>BREAKFAST RUSH.</h2>
+    <div aria-label="Choose difficulty" class="difficulty-list" role="group">
+      <button aria-pressed="false" class="difficulty" data-level="easy" type="button"><span class="level-icon">☀</span><span><strong>EASY</strong><small>A slow, sunny morning</small></span><span class="level-dots">●○○○</span></button>
+      <button aria-pressed="true" class="difficulty selected" data-level="medium" type="button"><span class="level-icon">✦</span><span><strong>MEDIUM</strong><small>A little breakfast bustle</small></span><span class="level-dots">●●○○</span></button>
+      <button aria-pressed="false" class="difficulty" data-level="hard" type="button"><span class="level-icon">ϟ</span><span><strong>HARD</strong><small>The diner is getting busy</small></span><span class="level-dots">●●●○</span></button>
+      <button aria-pressed="false" class="difficulty" data-level="hell" type="button"><span class="level-icon">♨</span><span><strong>HELL</strong><small>Someone broke the fryer</small></span><span class="level-dots">●●●●</span></button>
+      <button aria-pressed="false" class="difficulty custom-choice" data-level="custom" type="button"><span class="level-icon">⚙</span><span><strong>CUSTOM</strong><small>Your kitchen. Your rules.</small></span><span class="custom-arrow">↗</span></button>
+    </div>
+    <div class="custom-settings" hidden="" id="custom-settings">
+      <label>FALL SPEED <output id="speed-value">2.4×</output><input id="speed-setting" max="6" min="0.7" step="0.1" type="range" value="2.4"/></label>
+      <label>DROPS / SECOND <output id="rate-value">1.3</output><input id="rate-setting" max="4" min="0.5" step="0.1" type="range" value="1.3"/></label>
+      <label>HAZARDS <output id="hazards-value">15%</output><input id="hazards-setting" max="45" min="0" step="1" type="range" value="15"/></label>
+      <label>ROUND LENGTH<select id="duration-setting"><option value="30">30 seconds</option><option selected="" value="60">60 seconds</option><option value="90">90 seconds</option><option value="120">120 seconds</option></select></label>
+    </div>
+    <div class="order-summary">
+      <div><span>ROUND LENGTH</span><strong id="round-summary">60 SEC</strong></div>
+      <div><span>STARTING SPEED</span><strong id="speed-summary">2.4×</strong></div>
+      <div><span>BAD BITES</span><strong id="hazard-summary">15%</strong></div>
+    </div>
+    <p class="difficulty-description" id="difficulty-description">A balanced rush, with a few burnt bites and the occasional chili bomb.</p>
+    <p class="locked-note" hidden="" id="locked-note">Kitchen settings are locked during a run.</p>
+    <div class="mini-board">
+      <div class="mini-board-head">
+        <strong>♛ TOP CRUNCHERS</strong>
+        <button class="text-button" id="panel-board-button" type="button">Full board ↗</button>
+      </div>
+      <div class="mini-board-rows" id="mini-board-rows"></div>
+    </div>
+    <div class="panel-footer">MADE FRESH. PLAYED TOGETHER.<span>✦ &nbsp; ✦ &nbsp; ✦</span></div>
+  </div>
 </aside>
 </section>
-<section aria-labelledby="how-heading" class="instructions" id="how-to-play"><div class="section-heading"><p class="eyebrow">THE HOUSE RULES</p><h2 id="how-heading">GOOD BITES. BAD BITES. BIG FEELINGS.</h2><span>No potatoes were harmed.<br/>Emotionally? Maybe a little.</span></div><div class="rules-grid"><article class="rule-card"><canvas aria-label="Golden hash brown" data-item="golden" height="88" width="80"></canvas><div><span class="rule-tag good-tag">CATCH ME · +10</span><h3>The golden good stuff</h3><p>Catch a crispy hash brown! Keep three in your basket; extras stack on the serving plate. Miss one? −2 points.</p></div></article><article class="rule-card"><canvas aria-label="Burnt hash brown" data-item="burnt" height="88" width="80"></canvas><div><span class="rule-tag">LET IT FALL · −10 IF CAUGHT</span><h3>A little too well done</h3><p>That one's burnt! Let it drop past your basket. Dodging bad bites costs you nothing.</p></div></article><article class="rule-card"><canvas aria-label="Chili bomb" data-item="bomb" height="88" width="80"></canvas><div><span class="rule-tag">DODGE IT · −20 IF CAUGHT</span><h3>Spicy little trouble</h3><p>A chili bomb! Catch it and your basket gets a tiny shake. Steer clear and keep catching.</p></div></article></div><p class="rules-footnote">Catch +10. Miss −2. Burnt catch −10. Bomb catch −20. Dodging hazards costs nothing. Difficulty gradually increases. Personal bests are saved in this browser.</p></section>
-<footer class="site-footer"><a class="brand" href="#"><span class="brand-mark">✦</span><span>CRUNCH CLUB</span></a><span>SMALL POTATO. BIG FEELINGS.</span><span>VISUAL DIRECTION: CHEN YUERU · TEAM: CHEN / MA / LI</span></footer>
+<section aria-labelledby="how-heading" class="instructions" id="how-to-play">
+  <div class="section-heading">
+    <p class="eyebrow">THE HOUSE RULES &amp; ARCADE INNOVATIONS</p>
+    <h2 id="how-heading">CUSTOM FACES. 2P BUMPS. HALL OF FAME.</h2>
+    <span>Solo or side-by-side.<br/>Every potato has personality.</span>
+  </div>
+  <div class="rules-grid">
+    <article class="rule-card"><canvas aria-label="Golden hash brown" data-item="golden" height="88" width="80"></canvas><div><span class="rule-tag good-tag">CATCH ME · +10</span><h3>Your custom pixel potato</h3><p>Upload any portrait in <b>PIXEL FACE</b> to bake your pixel head onto golden hash browns! Miss one? −2 points.</p></div></article>
+    <article class="rule-card"><canvas aria-label="Burnt hash brown" data-item="burnt" height="88" width="80"></canvas><div><span class="rule-tag">2P VS BUMP · −10 IF CAUGHT</span><h3>Same-screen rivalry &amp; co-op</h3><p>In <b>2P VS</b>, P1 (A/D) and P2 (←/→) physically bump baskets to steal golden bites. In <b>2P CO-OP</b>, alternate catches for +5 Relay bonus!</p></div></article>
+    <article class="rule-card"><canvas aria-label="Chili bomb" data-item="bomb" height="88" width="80"></canvas><div><span class="rule-tag">DODGE IT · −20 IF CAUGHT</span><h3>Spicy trouble &amp; quick ESC</h3><p>Dodge chili bombs! Need to step out? Press <b>SPACE</b> to pause or <b>ESC</b> anytime to exit cleanly back to the main menu.</p></div></article>
+  </div>
+  
+  
+  <p class="rules-footnote">Each golden catch earns +10 score (+5 Relay bonus on alternating 2P Co-op catches) and +2 permanent coins. Misses and hazards affect only run score. Try the cosmetic shop, custom Pixel Face Studio, and Hall-of-Fame leaderboard; progress stays in this browser. This review build focuses on the starter shop, pixel avatars and local multiplayer.</p>
+</section>
+<footer class="site-footer">
+  <a class="brand" href="#"><span class="brand-mark">✦</span><span>CRUNCH CLUB</span></a>
+  <span>SMALL POTATO. BIG FEELINGS.</span>
+  <span>VISUAL DIRECTION: CHEN YUERU · TEAM: CHEN / MA / LI</span>
+</footer>
 </main>
-<dialog id="help-dialog"><div class="help-content"><button aria-label="Close instructions" class="dialog-close icon-button" id="close-help">×</button><p class="mini-label">WELCOME TO THE CLUB</p><h2>LET'S SAVE<br/>SOME POTATOES.</h2><ol><li><strong>Pick a rush.</strong> Easy is a gentle start. Custom lets you set your own pace.</li><li><strong>Move your basket.</strong> Drag anywhere in the game, use your finger, or press ← / → (A / D work too).</li><li><strong>Catch golden hash browns: +10.</strong> Three stay in your basket; extras stack on a serving plate with a running total. A missed golden bite costs 2 points.</li><li><strong>Dodge burnt bites and chili bombs.</strong> Catching them costs 10 or 20 points. Letting them fall is free.</li><li><strong>Keep going until time's up.</strong> Space or P pauses; the clock pauses too. Scores stay at zero or above.</li></ol><p>Tap the music note to mute. Best scores are saved in this browser by difficulty; Custom records also match your settings. This stage has no permanent wallet, shop, power-ups or rare characters.</p><button class="primary-button" id="help-got-it">GOT IT. LET'S CRUNCH.</button></div></dialog>
-<dialog aria-labelledby="shop-heading" hidden="" id="shop-dialog" style="display:none!important"><div class="shop-content"><button aria-label="Close shop" class="dialog-close icon-button" id="close-shop">×</button><div class="shop-heading"><div><p class="mini-label">YOUR CRUNCH, YOUR WAY</p><h2 id="shop-heading">THE LITTLE<br/>TREAT SHOP.</h2></div><div class="shop-wallet"><span>YOUR WALLET</span><strong>◈ <span id="shop-wallet">0</span></strong><small>Earn 2 coins per golden catch.</small></div></div><p class="shop-note" id="save-note">Your wallet and outfits stay on this browser. All items are cosmetic.</p><div aria-label="Shop categories" class="shop-tabs" role="tablist"><button aria-selected="true" data-category="scene" role="tab">SCENES</button><button aria-selected="false" data-category="flavour" role="tab">FLAVOURS</button><button aria-selected="false" data-category="ghost" role="tab">GHOSTS</button><button aria-selected="false" data-category="bomb" role="tab">BOMBS</button></div><div class="shop-message" id="shop-message" role="status">Make a little breakfast money. Buy a little joy.</div><div class="shop-grid" id="shop-grid" role="tabpanel"></div><div class="custom-color-panel" hidden="" id="custom-color-panel"><label for="ghost-color">YOUR GHOST COLOR</label><input id="ghost-color" type="color" value="#ffbdce"/><button class="small-button" id="save-ghost-color">SAVE COLOR</button><canvas height="60" id="custom-ghost-preview" width="50"></canvas></div><button class="primary-button shop-done" id="shop-done">BACK TO THE DINER</button></div></dialog>
+
+<dialog id="help-dialog">
+  <div class="help-content">
+    <button aria-label="Close instructions" class="dialog-close icon-button" id="close-help" type="button">×</button>
+    <p class="mini-label">WELCOME TO THE CLUB</p>
+    <h2>HOW TO PLAY &amp;<br/>PARTY TOGETHER.</h2>
+    <ol>
+      <li><strong>Pick 1P or Same-Screen 2P.</strong> Play <em>1P Solo</em>, <em>2P VS PK</em> (P1 <code>A/D</code> vs P2 <code>←/→</code> or mouse with basket-bump knockback!), or <em>2P Co-op</em> (+5 bonus when P1 and P2 alternate catches).</li>
+      <li><strong>Generate your Pixel Potato Face.</strong> Open <em>PIXEL FACE</em> to upload any avatar/selfie (or snap via webcam) — our Bayer-dithered quantizer bakes your face right onto the hash brown!</li>
+      <li><strong>Beat the Final 5s Big Countdown.</strong> Watch the giant center-screen 5-4-3-2-1 countdown in the closing seconds and bank +2 permanent coins per golden catch for the 7-item cosmetic shop.</li>
+      <li><strong>Pause or Exit anytime.</strong> Press <code>SPACE</code> or <code>P</code> to pause, <code>ESC</code> to exit a round straight back to the menu, and <code>R</code> on results to replay.</li>
+      <li><strong>Climb the Hall of Fame.</strong> Save your nickname and custom pixel portrait onto the local arcade leaderboard after any round!</li>
+    </ol>
+    <p>Golden catches earn +2 permanent coins for the Treat Shop. Misses and hazards never take wallet coins away. All data stays private in this browser.</p>
+    <button class="primary-button" id="help-got-it" type="button">GOT IT. LET'S CRUNCH.</button>
+  </div>
+</dialog>
+
+<dialog aria-labelledby="avatar-heading" id="avatar-dialog">
+  <div class="studio-content">
+    <button aria-label="Close pixel avatar studio" class="dialog-close icon-button" id="close-avatar" type="button">×</button>
+    <div class="studio-head">
+      <div>
+        <p class="mini-label">BAYER DITHER PIXELIZER</p>
+        <h2 id="avatar-heading">PIXEL POTATO<br/>AVATAR STUDIO.</h2>
+      </div>
+    </div>
+    <div aria-label="Choose player avatar slot" class="slot-tabs" role="tablist">
+      <button aria-selected="true" data-avatar-slot="p1" id="avatar-slot-p1" role="tab" type="button">PLAYER 1 POTATO</button>
+      <button aria-selected="false" data-avatar-slot="p2" id="avatar-slot-p2" role="tab" type="button">PLAYER 2 POTATO</button>
+    </div>
+    <div class="studio-grid">
+      <div class="studio-preview-card">
+        <canvas aria-label="Animated custom pixel hash brown preview" height="182" id="avatar-potato-preview" width="140"></canvas>
+        <div class="matrix-row">
+          <canvas aria-label="24 by 24 quantized pixel face matrix" height="72" id="avatar-grid-preview" width="72"></canvas>
+          <span>24×24 PIXEL<br/>FACE MATRIX</span>
+        </div>
+      </div>
+      <div class="studio-controls">
+        <div class="studio-field">
+          <label for="avatar-player-name">PLAYER DISPLAY NAME</label>
+          <input id="avatar-player-name" maxlength="12" placeholder="PLAYER 1" type="text" value="PLAYER 1"/>
+        </div>
+        <div class="studio-field">
+          <label>1. UPLOAD AVATAR OR SNAP PHOTO</label>
+          <div class="upload-row">
+            <label class="file-upload-label" for="avatar-file-input">↑ UPLOAD IMAGE</label>
+            <input accept="image/*" hidden="" id="avatar-file-input" type="file"/>
+            <button class="small-button" id="avatar-cam-button" type="button">WEBCAM SELFIE</button>
+            <button class="small-button" id="avatar-demo-button" type="button">DEMO PORTRAIT</button>
+          </div>
+        </div>
+        <div class="cam-box" hidden="" id="avatar-cam-box">
+          <video autoplay="" id="avatar-video" muted="" playsinline=""></video>
+          <div class="upload-row">
+            <button class="small-button" id="avatar-snap-button" type="button">SNAP PIXEL FACE</button>
+            <button class="small-button" id="avatar-cam-cancel" type="button">CANCEL</button>
+          </div>
+        </div>
+        <div class="studio-field">
+          <label>2. OR PICK INSTANT PIXEL PRESET</label>
+          <div class="preset-row">
+            <button class="small-button preset-btn active" data-avatar-preset="classic" type="button">CLASSIC</button>
+            <button class="small-button preset-btn" data-avatar-preset="scholar" type="button">SCHOLAR</button>
+            <button class="small-button preset-btn" data-avatar-preset="chef" type="button">CHEF</button>
+            <button class="small-button preset-btn" data-avatar-preset="cool" type="button">SHADES</button>
+          </div>
+        </div>
+        <div class="studio-field">
+          <label>3. PIXEL PALETTE &amp; CROP TUNING</label>
+          <div class="style-row" style="margin-bottom:8px">
+            <button class="small-button style-btn active" data-avatar-style="crispy" type="button">CRISPY GOLD EMBOSS</button>
+            <button class="small-button style-btn" data-avatar-style="arcade" type="button">16-BIT ARCADE COLOR</button>
+          </div>
+          <div class="sliders-row">
+            <label>FACE ZOOM <output id="avatar-zoom-val">1.2×</output><input id="avatar-zoom" max="2.2" min="1.0" step="0.1" type="range" value="1.2"/></label>
+            <label>CONTRAST <output id="avatar-contrast-val">1.2×</output><input id="avatar-contrast" max="1.7" min="0.8" step="0.05" type="range" value="1.2"/></label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="studio-status" id="avatar-status" role="status">Upload any photo to auto-generate a crispy 24×24 pixel potato head!</p>
+    <div class="studio-actions">
+      <button class="primary-button" id="avatar-save-button" type="button">✓ SAVE PIXEL POTATO</button>
+    </div>
+  </div>
+</dialog>
+
+<dialog aria-labelledby="leaderboard-heading" id="leaderboard-dialog">
+  <div class="studio-content">
+    <button aria-label="Close leaderboard" class="dialog-close icon-button" id="close-leaderboard" type="button">×</button>
+    <div class="studio-head">
+      <div>
+        <p class="mini-label">CRUNCH CLUB HALL OF FAME</p>
+        <h2 id="leaderboard-heading">TOP POTATO<br/>LEADERBOARD.</h2>
+      </div>
+    </div>
+    <div aria-label="Filter leaderboard by mode" class="board-tabs" role="tablist">
+      <button aria-selected="true" data-board-filter="all" role="tab" type="button">ALL MODES</button>
+      <button aria-selected="false" data-board-filter="1p" role="tab" type="button">1P SOLO</button>
+      <button aria-selected="false" data-board-filter="2p-vs" role="tab" type="button">2P VS PK</button>
+      <button aria-selected="false" data-board-filter="2p-coop" role="tab" type="button">2P CO-OP</button>
+    </div>
+    <div class="leaderboard-list" id="leaderboard-list" role="tabpanel"></div>
+    <div class="board-footer">
+      <button class="text-button" id="reset-board-button" type="button">Reset to house targets</button>
+      <button class="primary-button" id="leaderboard-done" type="button">BACK TO THE DINER</button>
+    </div>
+  </div>
+</dialog>
+
+<dialog aria-labelledby="shop-heading" id="shop-dialog">
+  <div class="shop-content">
+    <button aria-label="Close shop" class="dialog-close icon-button" id="close-shop" type="button">×</button>
+    <div class="shop-heading">
+      <div><p class="mini-label">YOUR CRUNCH, YOUR WAY</p><h2 id="shop-heading">THE LITTLE<br/>TREAT SHOP.</h2></div>
+      <div class="shop-wallet"><span>YOUR WALLET</span><strong>◈ <span id="shop-wallet">0</span></strong><small>Earn 2 coins per golden catch.</small></div>
+    </div>
+    <p class="shop-note" id="save-note">Your wallet and outfits stay on this browser. All items are cosmetic.</p>
+    <div aria-label="Shop categories" class="shop-tabs" role="tablist">
+      <button aria-selected="true" data-category="scene" role="tab" type="button">SCENES</button>
+      <button aria-selected="false" data-category="flavour" role="tab" type="button">FLAVOURS</button>
+      <button aria-selected="false" data-category="ghost" role="tab" type="button">GHOSTS</button>
+      <button aria-selected="false" data-category="bomb" hidden="" role="tab" style="display:none!important" type="button">BOMBS</button>
+    </div>
+    <div class="shop-message" id="shop-message" role="status">Make a little breakfast money. Buy a little joy.</div>
+    <div class="shop-grid" id="shop-grid" role="tabpanel"></div>
+    <div class="custom-color-panel" hidden="" id="custom-color-panel">
+      <label for="ghost-color">YOUR GHOST COLOR</label>
+      <input id="ghost-color" type="color" value="#ffbdce"/>
+      <button class="small-button" id="save-ghost-color" type="button">SAVE COLOR</button>
+      <canvas height="60" id="custom-ghost-preview" width="50"></canvas>
+    </div>
+    
+    <button class="primary-button shop-done" id="shop-done" type="button">BACK TO THE DINER</button>
+  </div>
+</dialog>
 <div aria-live="polite" class="sr-only" id="announcer"></div>
 </body>
 </html>

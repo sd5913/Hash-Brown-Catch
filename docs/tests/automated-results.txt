@@ -1,5 +1,15 @@
 Actual source-import verification: 2026-11-16 (Hong Kong review context).
-Snapshot: 2026-11-12 review scope.
+Snapshot: 2026-11-19 review scope.
+
+$ node check-innovations.cjs
+PASS 2P VS tracks independent player scores, hazards, and winner summary
+PASS 2P VS basket bump physics separates overlapping baskets and applies knockback
+PASS 2P Co-op awards +5 alternating relay bonus when P1 and P2 pass catches
+PASS Pixel Potato Avatar quantizer converts raw RGBA photo into valid 24x24 hex stream in both styles
+PASS Hall of Fame leaderboard ranks scores, embeds pixel portraits, and filters by play mode
+PASS Final 5-second countdown and (Stage >= 4) Alarm Clock 5-4-3-2-1 Fever Big Countdown work accurately
+PASS ESC exit handler and UI controls are wired in HTML and game.js
+7 innovation checks passed (Stage 3).
 
 $ node check-rules.cjs
 PASS golden catches add ten, misses cost two, score stays nonnegative
@@ -15,7 +25,7 @@ PASS custom settings are preserved and records distinguish difficulty and custom
 10 rule checks passed.
 
 $ node check-stage.cjs
-PASS Stage 2: scoring, scope gates, collision and applicable progression rules.
+PASS Stage 3: scoring, scope gates, collision and applicable progression rules.
 
 JavaScript syntax checks: PASS.
 No live user-study, phone-hardware or Mac/Windows launcher execution is claimed by these results.
