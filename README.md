@@ -39,11 +39,11 @@ The source and local run instructions are the reproducible assessment handoff. N
 | LI Jiarui (Sherry) | [@SherryLi919](https://github.com/SherryLi919) |
 
 - [Team Project board](https://github.com/orgs/sd5913/projects/6) — confirm tutor visibility and all three members' Write access.
-- [Iteration history](docs/iterations.md) and [current scope](docs/current-scope.md).
+- [Dated development process](docs/process.md), [iteration history](docs/iterations.md) and [current scope](docs/current-scope.md).
 - [Shared plan and owners](docs/plan.md), [team roles and contribution evidence](docs/team-contributions.md).
 - [Design decisions](docs/design-decisions.md), [review feedback and response](docs/review-feedback.md).
 - [Automated check output](docs/tests/automated-results.txt) and [platforms/limitations](docs/limitations.md).
-- [Playtest plan](docs/playtest/plan.md), [actual observation record](docs/playtest/results.md), [changes and retests](docs/playtest/changes.md). The latter records remain pending where raw evidence is unavailable.
+- [Playtest plan](docs/playtest/plan.md), [actual observation record](docs/playtest/results.md), [changes and retests](docs/playtest/changes.md). The observation record now includes dated informal feedback; fixes and retests remain pending where not verified.
 
 ## Checks and course mapping
 
@@ -53,7 +53,7 @@ Week 4 input is implemented in `game/game.js`; Week 5 sprites and frame selectio
 
 ## Limitations and credits
 
-Saves are browser/origin-specific. There is no account, cloud save or global authenticated leaderboard. Phone/two-player compatibility and real user observations still need evidence. No user photos, participant identities, credentials or personal save files are included.
+Saves are browser/origin-specific. There is no account, cloud save or global authenticated leaderboard. Broader phone/two-player compatibility still needs testing. Informal feedback is recorded under docs/playtest/results.md. A skin purchase/equip problem was reported by Crystal and Renna on 16 November; the affected build and fix remain to be verified. No user photos, participant identities, credentials or personal save files are included.
 
 See [Credits and AI use](docs/credits.md) and bundled third-party licenses. AI assisted with implementation; team design, review and testing roles are stated separately. Original assets are not assigned a blanket license by publication.
 
