@@ -15,6 +15,28 @@ Solo or same-screen VS/co-op, adjustable difficulty, permanent local coins, a st
 
 Current build: prepared for the **19 November review**, imported and published on **16 November 2026**. A reported skin purchase/equip problem remains open; see the project record.
 
+## Screenshots
+
+Screens captured from the current review build on 16 November 2026.
+
+### Breakfast arcade
+
+![Crunch Club game menu and difficulty selection](docs/images/01-game-menu.jpg)
+
+The diner interface, game menu and difficulty selection.
+
+### Same-screen multiplayer
+
+![Two-player game with separate baskets and score displays](docs/images/02-local-multiplayer.jpg)
+
+Two players share one screen, with separate baskets and score displays.
+
+### Pixel Avatar Studio
+
+![Pixel Potato Avatar Studio with character presets and palette controls](docs/images/03-pixel-avatar.jpg)
+
+Character presets, pixel preview and palette controls for personalized potatoes.
+
 ## Team and development
 
 | Member | GitHub | Focus |
