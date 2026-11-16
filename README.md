@@ -32,6 +32,12 @@ The source and local run instructions are the reproducible assessment handoff. N
 
 ## Team planning and evidence
 
+| Member | GitHub |
+| --- | --- |
+| CHEN Yueru (Crystal) | [@Crystalll0](https://github.com/Crystalll0) |
+| MA Qianran (Renna) | [@maqianran](https://github.com/maqianran) |
+| LI Jiarui (Sherry) | [@SherryLi919](https://github.com/SherryLi919) |
+
 - [Team Project board](https://github.com/orgs/sd5913/projects/6) — confirm tutor visibility and all three members' Write access.
 - [Iteration history](docs/iterations.md) and [current scope](docs/current-scope.md).
 - [Shared plan and owners](docs/plan.md), [team roles and contribution evidence](docs/team-contributions.md).
