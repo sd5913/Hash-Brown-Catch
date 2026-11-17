@@ -99,6 +99,8 @@ Compiled on 2026-11-16 from supplied conversation screenshots. These are retrosp
 | 2026-11-15; forwarded to team 2026-11-16 | External progression feedback | Suggested container upgrades, coin progression, automation, more collectors and staged restaurant progression. | Exploratory backlog. Team noted larger baskets also increase hazard exposure. |
 | 2026-11-16 | Crystal, internal team play | Tried the two-player prototype and described separate controls on one computer. | Record as local same-screen multiplayer. |
 | 2026-11-16 | Crystal and Renna, internal team play | Purchased skin did not appear to apply; Renna reported the same outcome after trying it. | Open reported defect; not marked fixed. |
+| 2026-11-17 | Sherry, internal team work | Fixed the skin purchase/equip failure; external players invited to playtest. | Verified fix: purchased skin applies correctly after retest. |
+
 
 ### Open defect: purchased skin not visibly applied
 
