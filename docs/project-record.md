@@ -11,7 +11,7 @@ This page brings together the team's development history, responsibilities, desi
 
 The 2026-11-19 release imports the supplied complete game originally packaged as Stage-05 / Final Review. It includes six Career kitchens, four upgrade tracks, automated catching, magnet attraction, chef bonuses, the full cosmetic shop, pixel avatars, local ranking, solo and same-screen VS/co-op, clock Fever, coffee, cola and the rare double-coin Spud Imp.
 
-English and Chinese interfaces are selectable live, including menus, dialogs, dynamic HUD text, canvas labels and the player guide. Language choice is stored locally and does not restart the round. Game rules and browser-local saves are shared across both languages.
+English, Simplified Chinese, Traditional Chinese and Italian are available during play, including menus, dialogs, dynamic HUD text, canvas labels and the player guide. Language choice is stored locally and does not restart the round. Game rules and browser-local saves are shared across all four language settings.
 
 The shop renderer applies a manual scene immediately and remembers that choice across reloads. Selecting or advancing to another Career stage restores the stage setting. Automated checks cover the source logic; a visual browser retest of purchase, equip and reload remains to be recorded.
 
@@ -22,7 +22,8 @@ The shop renderer applies a manual scene immediately and remembers that choice a
 | 2026-11-12 | Complete round | Catch/avoid rules, difficulty, results and replay |
 | 2026-11-15 | Wallet and feedback | Persistent coins, cosmetic choices and progression proposals |
 | 2026-11-17 | Career integration | Restaurant progression, upgrades and customization refinements |
-| 2026-11-19 | Current complete bilingual release | Imported complete scope, live language switch, full scenes and updated guide |
+| 2026-11-19 | Initial bilingual release | Imported complete scope, live language switch, full scenes and updated guide |
+| 2026-11-19 | Localization update | Added Traditional Chinese and Italian options to the game and player guide |
 
 These intermediate display dates were supplied by the team for its iteration presentation. They are not backdated commits or independent evidence that every listed feature was implemented on that date. Existing discussion dates below and archived source branches remain intact.
 
