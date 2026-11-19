@@ -1,5 +1,9 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Hash Brown Catch - Guide</title><script src="i18n.js"></script><style>body{max-width:850px;margin:32px auto;padding:0 24px;background:#fff7e7;color:#603c29;font:17px/1.8 system-ui,sans-serif}a{color:#a53828}button{float:right;padding:8px 16px;background:#ffe1a2;border:1px solid #a53828;border-radius:6px;cursor:pointer}h2{border-top:1px solid #dec9a2;padding-top:20px}kbd,code{background:#f5e6c8;padding:2px 6px;border-radius:4px}[hidden]{display:none!important}</style></head><body>
-<button id="language-toggle" type="button">中文</button>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Hash Brown Catch - Guide</title><script src="i18n.js?v=tri1"></script><style>body{max-width:850px;margin:32px auto;padding:0 24px;background:#fff7e7;color:#603c29;font:17px/1.8 system-ui,sans-serif}a{color:#a53828}button{float:right;padding:8px 16px;background:#ffe1a2;border:1px solid #a53828;border-radius:6px;cursor:pointer}h2{border-top:1px solid #dec9a2;padding-top:20px}kbd,code{background:#f5e6c8;padding:2px 6px;border-radius:4px}[hidden]{display:none!important}.language-picker{display:flex;justify-content:flex-end;gap:2px}.language-picker button[aria-pressed=true]{background:#973b24;color:white}</style></head><body>
+<div class="language-picker" role="group" aria-label="Language / 語言" data-language-control>
+      <button type="button" lang="en" data-lang="en" aria-pressed="false">EN</button>
+      <button type="button" lang="zh-CN" data-lang="zh" aria-pressed="false">简中</button>
+      <button type="button" lang="zh-HK" data-lang="zh-HK" aria-pressed="false">繁中</button>
+    </div>
 <article id="guide-en" data-user-text>
 <h1>Hash Brown Catch - Player Guide</h1><p>Release: 19 November 2026 · <a href="index.html?lang=en">Return to the game</a></p>
 <h2>Start playing</h2><p>Choose Career, solo, versus or co-op, then start a shift. Move with the mouse, touch, arrow keys or A/D. Press Space or P to pause, Escape to return to the menu, and R on the results screen to replay.</p>
@@ -18,5 +22,14 @@
 <h2>商店、头像与语言切换</h2><p>在商店购买并装备背景、口味、幽灵颜色与炸弹外观。点击背景会立即应用；主动切换闯关关卡后，恢复该关卡的场景。可上传照片、选择预设，或自愿使用摄像头拍照，制作24×24像素头像。照片在浏览器内处理。页面顶部及各弹窗都有语言按钮，切换时保留当前对局。</p>
 <h2>存档与本地启动</h2><p>钱包、外观、升级、头像和排行榜保存在当前浏览器。示例目标不是其他玩家的真实成绩。存档需要浏览器允许本地存储。离线游玩时，下载并解压整个仓库，从仓库根目录运行启动脚本即可，无需接口密钥或安装额外依赖。</p>
 </article>
-<script>function showGuide(){const zh=CrunchI18n.language==='zh';document.getElementById('guide-en').hidden=zh;document.getElementById('guide-zh').hidden=!zh;document.title=zh?'薯饼接接乐 · 玩家指南':'Hash Brown Catch - Player Guide';}window.addEventListener('crunch-language-change',showGuide);document.addEventListener('DOMContentLoaded',showGuide);</script>
+<article id="guide-zh-HK" data-user-text hidden>
+<h1>薯餅接接樂 · 玩家指南</h1><p>版本日期：2026年11月19日 · <a href="index.html?lang=zh-HK">返回遊戲</a></p>
+<h2>開始遊玩</h2><p>選擇升職闖關、單人經典、雙人對戰或雙人合作，然後開始班次。使用鼠標、觸控、方向鍵或左右字母鍵移動。空格鍵或暫停鍵可暫停，退出鍵可返回菜單，結算界面可按重玩鍵再來一局。具體鍵位見遊戲下方提示。</p>
+<h2>六站升職路線</h2><p>從街邊攤出發，依次晉昇華萊士、漢堡王、麥當勞、肯德基和藍蛙。達到班次目標後，解鎖下一間廚房及對應背景。金幣可升級接取工具、自動助手、磁鐵與廚師技能。工具越大，也越容易誤接危險物。</p>
+<h2>得分、金幣與道具</h2><p>未升級時，接住金黃薯餅加10分；漏接扣2分，誤接焦薯餅扣10分，炸彈扣20分。得分最低為零。鬧鐘增加5秒，單局累計最多增加15秒，並觸發帶醒目倒計時的狂熱狀態。狂熱期間只掉落金黃薯餅，未升級時每次接取加15分。咖啡減緩下落，持續4秒遊戲時間；可樂抵擋一次危險物。稀有的薯薯小搗蛋可使本局金幣翻倍。</p>
+<h2>同一台電腦上的雙人遊戲</h2><p>玩家一使用左右字母鍵，玩家二使用方向鍵或鼠標。對戰模式支持籃子碰撞；合作模式中交替接取可獲得額外5分接力獎勵。兩人共用同一屏幕。</p>
+<h2>商店、頭像與語言切換</h2><p>在商店購買並裝備背景、口味、幽靈顏色與炸彈外觀。點擊背景會立即應用；主動切換闖關關卡後，恢復該關卡的場景。可上傳照片、選擇預設，或自願使用攝像頭拍照，製作24×24像素頭像。照片在瀏覽器內處理。頁面頂部及各彈窗都有語言按鈕，切換時保留當前對局。</p>
+<h2>存檔與本地啓動</h2><p>錢包、外觀、升級、頭像和排行榜保存在當前瀏覽器。示例目標不是其他玩家的真實成績。存檔需要瀏覽器允許本地存儲。離線遊玩時，下載並解壓整個倉庫，從倉庫根目錄運行啓動腳本即可，無需接口密鑰或安裝額外依賴。</p>
+</article>
+<script>function showGuide(){const lang=CrunchI18n.language;for(const article of document.querySelectorAll('article'))article.hidden=article.id!=='guide-'+lang;document.title=document.querySelector('article:not([hidden]) h1').textContent;}window.addEventListener('crunch-language-change',showGuide);document.addEventListener('DOMContentLoaded',showGuide);</script>
 </body></html>
