@@ -1,5 +1,3 @@
-@font-face { font-family: "Fusion Pixel 10px Monospaced SC"; src: url("assets/fusion-hans.woff2") format("woff2"); font-weight: 400; font-display: swap; }
-@font-face { font-family: "Fusion Pixel 10px Monospaced TC"; src: url("assets/fusion-hant.woff2") format("woff2"); font-weight: 400; font-display: swap; }
 /* Arcade Innovations Stylesheet: 6-Stage Fast-Food Career, Catcher/Bot Upgrade Lab, Pixel Avatar Studio, Multiplayer & Hall of Fame.
  * Uses tonal surface hierarchy and local Pixel display face (0 FAIL / 0 WARN under tasteskill lint).
  */
@@ -239,4 +237,9 @@ html:lang(zh) .header-right #how-button,
   font-family: var(--header-cjk) !important;
   font-size: 11px;
   font-weight: 600;
+}
+.site-header { zoom: 1.18; }
+@media (max-width: 850px) {
+  .site-header { flex-wrap: wrap; gap: 10px; }
+  .site-header .header-right { max-width: 100%; }
 }
