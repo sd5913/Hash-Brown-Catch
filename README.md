@@ -2,11 +2,11 @@
 
 A pixel-art breakfast arcade: catch golden hash browns, dodge burnt bites and bombs, and customize your potato.
 
-**[▶ PLAY ONLINE](https://sd5913.github.io/Hash-Brown-Catch/game/)** · [English](https://sd5913.github.io/Hash-Brown-Catch/game/?lang=en) · [Chinese](https://sd5913.github.io/Hash-Brown-Catch/game/?lang=zh) · **[PROJECT RECORD](docs/project-record.md)** · [Team board](https://github.com/orgs/sd5913/projects/6)
+**[▶ PLAY ONLINE](https://sd5913.github.io/Hash-Brown-Catch/game/)** · [English](https://sd5913.github.io/Hash-Brown-Catch/game/?lang=en) · [Simplified Chinese](https://sd5913.github.io/Hash-Brown-Catch/game/?lang=zh) · [Traditional Chinese](https://sd5913.github.io/Hash-Brown-Catch/game/?lang=zh-HK) · [Italian](https://sd5913.github.io/Hash-Brown-Catch/game/?lang=it) · **[PROJECT RECORD](docs/project-record.md)** · [Team board](https://github.com/orgs/sd5913/projects/6)
 
 ## The game
 
-Six-stage Career, solo and same-screen VS/co-op, adjustable arcade difficulty, permanent local coins, a full cosmetic shop, pixel avatars and a local Hall of Fame. Switch between complete English and Chinese interfaces using the language button in the header or a dialog.
+Six-stage Career, solo and same-screen VS/co-op, adjustable arcade difficulty, permanent local coins, a full cosmetic shop, pixel avatars and a local Hall of Fame. Switch among English, Simplified Chinese, Traditional Chinese and Italian using the language button in the header or a dialog.
 
 - Move with mouse/touch, arrows or A/D. Space/P pauses; ESC exits; R replays from results.
 - Golden catch: +10 score and +2 coins. Miss: -2; burnt catch: -10; bomb: -20. Score never drops below zero.
