@@ -67,7 +67,7 @@ Spend earned coins on backgrounds and equip them in the Shop.
 
 | Member | GitHub | Focus |
 | --- | --- | --- |
-| CHEN Yueru (Crystal) | [@Crystalll0](https://github.com/Crystalll0) | Pixel-art direction, game prototyping, shop and Career concepts, project coordination and multiplayer playtesting |
+| CHEN Yueru (Crystal) | [@Crystalll0](https://github.com/Crystalll0) | Visual direction, prototyping, coordination, GitHub updates, website visual refinements and typography adjustments |
 | MA Qianran (Renna) | [@maqianran](https://github.com/maqianran) | Internal testing and player feedback |
 | LI Jiarui (Sherry) | [@SherryLi919](https://github.com/SherryLi919) | Game concept and interaction exploration |
 
