@@ -248,3 +248,5 @@ html:lang(zh) .header-right .open-sign {
 html:lang(zh) .header-right .arcade-pill span,
 html:lang(zh) .header-right .wallet-button > span,
 html:lang(zh) .header-right #how-button { font-size: 21px; line-height: 1.4; }
+
+dialog .dialog-language-picker { display: flex; width: max-content; margin: 8px 56px 8px auto; }
