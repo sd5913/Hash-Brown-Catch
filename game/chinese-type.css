@@ -5,7 +5,7 @@ html:lang(zh-HK) { --game-cjk: "Fusion Pixel 10px Monospaced TC", sans-serif; }
 html:lang(zh-CN) { --reading-font: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; }
 html:lang(zh-HK) { --reading-font: "PingFang HK", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif; }
 html:lang(zh) body,
-html:lang(zh) :is(main, dialog, article, footer) :lang(zh):not(.brand, .brand *) {
+html:lang(zh) :is(main, dialog, article, footer) :lang(zh):where(:not(.brand, .brand *, h1, h1 *)) {
   font-family: var(--reading-font) !important;
 }
 html:lang(zh) :is(main, dialog, article) h1,
