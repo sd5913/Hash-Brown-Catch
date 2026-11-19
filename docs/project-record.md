@@ -22,8 +22,8 @@ The shop renderer applies a manual scene immediately and remembers that choice a
 | 2026-11-12 | Complete round | Catch/avoid rules, difficulty, results and replay |
 | 2026-11-15 | Wallet and feedback | Persistent coins, cosmetic choices and progression proposals |
 | 2026-11-17 | Career integration | Restaurant progression, upgrades and customization refinements |
-| 2026-11-19 | Initial bilingual release | Imported complete scope, live language switch, full scenes and updated guide |
-| 2026-11-19 | Localization update | Added Traditional Chinese and Italian options to the game and player guide |
+| 2026-11-19 | Initial bilingual release | Brought six Career kitchens, equipment upgrades, same-screen VS and co-op, and local rankings into the English and Simplified Chinese build. |
+| 2026-11-19 | Four-language release | Added Traditional Chinese and Italian alongside English and Simplified Chinese. Players can switch languages mid-round and read menus, score updates and the player guide in their chosen language. |
 
 These intermediate display dates were supplied by the team for its iteration presentation. They are not backdated commits or independent evidence that every listed feature was implemented on that date. Existing discussion dates below and archived source branches remain intact.
 
@@ -31,7 +31,7 @@ These intermediate display dates were supplied by the team for its iteration pre
 
 | Member | GitHub | Responsibilities and recorded contributions |
 | --- | --- | --- |
-| CHEN Yueru (Crystal) | [@Crystalll0](https://github.com/Crystalll0) | Visual direction, prototype preparation, coordination, integrating suggestions, sharing playable alternatives and identifying the skin issue. |
+| CHEN Yueru (Crystal) | [@Crystalll0](https://github.com/Crystalll0) | Developed the pixel-art diner look, iterated on playable prototypes and proposed the coin shop and Career theme. Coordinated the project board, shared demos, tested same-screen controls and reported a skin that failed to equip. |
 | MA Qianran (Renna) | [@maqianran](https://github.com/maqianran) | Internal playtesting, inviting additional players, gameplay feedback, early potato-dog suggestion and confirming the skin issue. |
 | LI Jiarui (Sherry) | [@SherryLi919](https://github.com/SherryLi919) | Initial game brief, concept and interaction extensions, character experiments, sharing feedback and the optimized package, and initial goal-card preparation. |
 
@@ -137,7 +137,7 @@ These are prepared source scopes imported in sequence on 2026-11-16, not backdat
 | --- | --- | --- |
 | 2026-11-05 | Gentle 30-second core interaction: movement, catch +10, miss -2 (minimum zero), animation, audio, mash/ghost feedback, pause and replay. No hazards or wallet UI. | [Core snapshot](https://github.com/sd5913/Hash-Brown-Catch/tree/review/core-interaction) |
 | 2026-11-12 | Complete round, burnt bites, bombs, five difficulty choices, acceleration, results and personal bests. | [Integrated snapshot](https://github.com/sd5913/Hash-Brown-Catch/tree/review/integrated-core) |
-| 2026-11-19 | Complete Career, upgrades, shop, powers, avatars, local ranking, same-screen play and selectable English/Chinese UI. Superseded by the complete bilingual release on the same displayed review date. | [Current source](https://github.com/sd5913/Hash-Brown-Catch/tree/main/game) |
+| 2026-11-19 | Complete Career, upgrades, shop, powers, avatars, local ranking, same-screen play and four interface options: English, Simplified Chinese, Traditional Chinese and Italian. | [Current source](https://github.com/sd5913/Hash-Brown-Catch/tree/main/game) |
 
 ### Review feedback
 
