@@ -10,8 +10,8 @@
 <link href="assets/favicon.svg" rel="icon" type="image/svg+xml"/>
 <link href="style.css" rel="stylesheet"/>
 <link href="shop.css" rel="stylesheet"/>
-<link href="arcade.css?v=header3" rel="stylesheet"/>
-<script src="i18n.js?v=header3"></script>
+<link href="arcade.css?v=tri1" rel="stylesheet"/>
+<script src="i18n.js?v=tri1"></script>
 <script defer="" src="assets/p5.min.js"></script>
 <script defer="" src="game-core.js"></script>
 <script defer="" src="economy.js"></script>
@@ -19,15 +19,17 @@
 <script defer="" src="game.js"></script>
 <script defer="" src="shop.js"></script>
 <style>.stage-banner{padding:10px 18px;text-align:center;background:#733e2b;color:#fff5df;font:600 12px/1.6 monospace;letter-spacing:.04em}.stage-note{padding:14px 18px;background:#fff1cf;border:1px solid #dec9a2;border-radius:10px;font:14px/1.6 monospace;margin:12px 0}.stage-note a{color:#843b24} [hidden]{display:none!important}</style>
-<style>html[lang="zh-CN"]{--font-pixel:"PingFang SC","Microsoft YaHei",sans-serif}html[lang="zh-CN"] body,html[lang="zh-CN"] button,html[lang="zh-CN"] h1,html[lang="zh-CN"] h2,html[lang="zh-CN"] h3{font-family:"PingFang SC","Microsoft YaHei",sans-serif!important}#language-toggle{min-width:66px;position:relative;z-index:20}.language-dock{position:fixed!important;right:16px;top:12px;z-index:2147483647!important;background:#fff3d4;border:2px solid #8d392b;padding:10px 16px;border-radius:8px;color:#733e2b;cursor:pointer}dialog .language-dock{position:absolute!important;top:14px;right:54px}html.i18n-loading body{visibility:hidden}</style>
+<style>html:lang(zh){--font-pixel:"PingFang SC","Microsoft YaHei",sans-serif}html:lang(zh) body,html:lang(zh) button,html:lang(zh) h1,html:lang(zh) h2,html:lang(zh) h3{font-family:"PingFang SC","Microsoft YaHei",sans-serif!important}#language-toggle{min-width:66px;position:relative;z-index:20}.language-dock{position:fixed!important;right:16px;top:12px;z-index:2147483647!important;background:#fff3d4;border:2px solid #8d392b;padding:10px 16px;border-radius:8px;color:#733e2b;cursor:pointer}dialog .language-dock{position:absolute!important;top:14px;right:54px}html.i18n-loading body{visibility:hidden}</style>
 </head>
 <body>
 <div class="stage-banner">UPDATED 2026-11-19 · CAREER & MULTIPLAYER EDITION</div>
 <header class="site-header">
   <a aria-label="Crunch Club home" class="brand" href="#"><span aria-hidden="true" class="brand-mark">✦</span><span>CRUNCH CLUB<small>THE BREAKFAST ARCADE</small></span></a>
   <div class="header-right">
-    <div class="language-picker" role="group" aria-label="Language / 语言" data-language-control>
-      <button type="button" lang="en" data-lang="en" aria-pressed="false">EN</button><button type="button" lang="zh-CN" data-lang="zh" aria-pressed="false">中文</button>
+    <div class="language-picker" role="group" aria-label="Language / 語言" data-language-control>
+      <button type="button" lang="en" data-lang="en" aria-pressed="false">EN</button>
+      <button type="button" lang="zh-CN" data-lang="zh" aria-pressed="false">简中</button>
+      <button type="button" lang="zh-HK" data-lang="zh-HK" aria-pressed="false">繁中</button>
     </div>
     <span class="open-sign"><i></i> CAREER &amp; 1P/2P</span>
     <button aria-label="Open catcher and automation upgrade lab" class="arcade-pill upgrade-pill" id="upgrade-button" type="button"><i aria-hidden="true">⚡</i><span>UPGRADES</span></button>
