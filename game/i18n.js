@@ -8,7 +8,16 @@ Object.assign(dictionary,{"24 by 24 quantized pixel face matrix":"24×24像素�
 Object.assign(dictionary,{"unlocked and equipped!":"已解锁并装备！","applied to your diner!":"已应用到餐厅！"});
 let language='en';
 try{language=new URLSearchParams(location.search).get('lang')||localStorage.getItem('crunch-language')||'en';}catch{}
-language=/^(zh|cn|zh-CN)$/.test(language)?'zh':'en';
+function normalizeLanguage(value){
+ if (/^zh-(hk|tw|hant)$/i.test(value)) return 'zh-HK';
+ return /^(zh|cn|zh-cn|zh-hans)$/i.test(value) ? 'zh' : 'en';
+}
+language=normalizeLanguage(language);
+const traditionalCharacters={"饼":"餅","乐":"樂","场":"場","于":"於","职":"職","闯":"闖","关":"關","与":"與","双":"雙","单":"單","装":"裝","备":"備","级":"級","头":"頭","说":"說","边":"邊","摊":"攤","华":"華","莱":"萊","汉":"漢","麦":"麥","当":"當","劳":"勞","蓝":"藍","从":"從","锅":"鍋","铲":"鏟","纸":"紙","盘":"盤","动":"動","来":"來","对":"對","决":"決","启":"啓","戏":"戲","标":"標","币":"幣","时":"時","间":"間","团":"團","队":"隊","数":"數","个":"個","点":"點","梦":"夢","攒":"攢","换":"換","锁":"鎖","题":"題","厨":"廚","会":"會","儿":"兒","键":"鍵","继":"繼","续":"續","结":"結","并":"並","灿":"燦","让":"讓","荣":"榮","誉":"譽","观":"觀","误":"誤","连":"連","击":"擊","请":"請","页":"頁","试":"試","暂":"暫","战":"戰","铁":"鐵","师":"師","选":"選","择":"擇","闹":"鬧","钟":"鐘","进":"進","热":"熱","计":"計","订":"訂","经":"經","开":"開","晋":"晉","线":"線","极":"極","简":"簡","闲":"閒","适":"適","难":"難","狱":"獄","义":"義","规":"規","则":"則","险":"險","长":"長","无":"無","设":"設","弹":"彈","随":"隨","显":"顯","减":"減","缓":"緩","挡":"擋","伤":"傷","谁":"誰","捣":"搗","约":"約","现":"現","调":"調","后":"後","兑":"兌","轻":"輕","赚":"賺","浏":"瀏","览":"覽","钱":"錢","厅":"廳","应":"應","满":"滿","视":"視","觉":"覺","欢":"歡","触":"觸","发":"發","网":"網","昵":"暱","称":"稱","传":"傳","摄":"攝","图":"圖","预":"預","学":"學","镜":"鏡","黄":"黃","复":"復","缩":"縮","为":"為","灵":"靈","买":"買","颜":"顏","种":"種","样":"樣","着":"著","创":"創","额":"額","费":"費","运":"運","气":"氣","炉":"爐","条":"條","纹":"紋","馆":"館","酱":"醬","爱":"愛","枫":"楓","专":"專","属":"屬","烦":"煩","红":"紅","灯":"燈","柜":"櫃","砖":"磚","墙":"牆","门":"門","鸡":"雞","宝":"寶","铜":"銅","终":"終","泽":"澤","细":"細","葱":"蔥","浓":"濃","浆":"漿","绪":"緒","云":"雲","温":"溫","烟":"煙","圆":"圓","拥":"擁","没":"沒","这":"這","储":"儲","仅":"僅","话":"話","业":"業","篮":"籃","涡":"渦","实":"實","习":"習","护":"護","达":"達","挥":"揮","声":"聲","扩":"擴","范":"範","围":"圍","将":"將","获":"獲","宽":"寬","盖":"蓋","两":"兩","还":"還","内":"內","缘":"緣","强":"強","变":"變","冲":"衝","胜":"勝","势":"勢","敌":"敵","几":"幾","块":"塊","纪":"紀","录":"錄","绩":"績","读":"讀","张":"張","尝":"嘗","见":"見","转":"轉","访":"訪","问":"問","脸":"臉","画":"畫","权":"權","绝":"絕","记":"記","争":"爭","夺":"奪","节":"節","夹":"夾","杂":"雜","尔":"爾","紧":"緊","彻":"徹","渐":"漸","抢":"搶","奖":"獎","励":"勵","纷":"紛","疯":"瘋","风":"風","乱":"亂","资":"資","赢":"贏","购":"購","体":"體","验":"驗","组":"組","离":"離","卫":"衛","确":"確","认":"認","类":"類","别":"別","价":"價","静":"靜","闭":"閉","区":"區","账":"賬","语":"語","筛":"篩","档":"檔","劲":"勁","钮":"鈕","闪":"閃","带":"帶","状":"狀","态":"態","电":"電","脑":"腦","该":"該","愿":"願","处":"處","顶":"頂","许":"許","载":"載","压":"壓","仓":"倉","库":"庫","脚":"腳","钥":"鑰","赖":"賴"};
+const traditionalPhrases={"早餐游乐场":"早餐遊樂場","双人操作与像素头像制作":"雙人操作與像素頭像製作","游戏指南":"遊戲指南","剩余时间":"剩餘時間","步步高升":"步步高昇","准备前往下一间厨房":"準備前往下一間廚房","制作像素头像":"製作像素頭像","游戏模式":"遊戲模式","游戏进行中无法修改厨房设置":"遊戲進行中無法修改廚房設置","双人游戏":"雙人遊戲","秒游戏时间":"秒遊戲時間","兑换外观更轻松":"兌換外觀更輕鬆","制作像素薯饼头像":"製作像素薯餅頭像","开启双人游戏":"開啓雙人遊戲","准备开工":"準備開工","立即应用到游戏中":"立即應用到遊戲中","一只小捣蛋":"一隻小搗蛋","经典酥脆的小伙伴":"經典酥脆的小夥伴","烟熏可可色的胡椒炸弹":"煙薰可可色的胡椒炸彈","随时准备捣蛋":"隨時準備搗蛋","轻松吸住边缘掉落的薯饼":"輕鬆吸住邊緣掉落的薯餅","准备下一份订单":"準備下一份訂單","准备好了就回来":"準備好了就回來","轻松热身":"輕鬆熱身","请做好准备":"請做好準備","分即可晋升华莱士":"分即可晉昇華萊士","疯狂周四风暴":"瘋狂週四風暴","制作":"製作","游戏墨镜":"遊戲墨鏡","暂停游戏":"暫停遊戲","继续游戏":"繼續遊戲","退出游戏":"退出遊戲","游戏操作":"遊戲操作","游戏区域":"遊戲區域","准备开工于":"準備開工於","准备":"準備","游戏画布":"遊戲畫布","已退出当前游戏并返回主菜单":"已退出當前遊戲並返回主菜單","游戏已暂停":"遊戲已暫停","已即时应用到游戏":"已即時應用到遊戲","在这里升级锅铲":"在這裡升級鍋鏟","返回游戏":"返回遊戲","开始游玩":"開始遊玩","具体键位见游戏下方提示":"具體鍵位見遊戲下方提示","依次晋升华莱士":"依次晉昇華萊士","同一台电脑上的双人游戏":"同一台電腦上的雙人遊戲","离线游玩时":"離線遊玩時"};
+function traditional(text){
+ return text.replace(/[\u3400-\u9fff]+/g, word => traditionalPhrases[word] || Array.from(word,c=>traditionalCharacters[c] || c).join(''));
+}
 const cache=new Map(), originals=new WeakMap(), attributes=new WeakMap();
 const escaped=s=>s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
 const keys=Object.keys(dictionary).sort((a,b)=>b.length-a.length);
@@ -63,7 +72,7 @@ function zh(raw){
  if(/[\u3400-\u9fff]/.test(s))s=s.replace(/,/g,'，').replace(/:/g,'：').replace(/!/g,'！').replace(/\?/g,'？').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\.(?=\s|$)/g,'。');
  return s;
 }
-function t(value){const raw=String(value??'');if(language==='en')return raw;if(!cache.has(raw))cache.set(raw,zh(raw));return cache.get(raw);}
+function t(value){const raw=String(value??'');if(language==='en')return raw;if(!cache.has(raw))cache.set(raw,zh(raw));return language==='zh-HK'?traditional(cache.get(raw)):cache.get(raw);}
 function skip(node){return node.parentElement?.closest('script,style,kbd,.brand,[data-user-text],[data-language-control]');}
 function textNode(node){if(skip(node)||!node.nodeValue?.trim())return;const old=originals.get(node);const raw=old&&old.last===node.nodeValue?old.raw:node.nodeValue;const next=raw.replace(/\S[\s\S]*\S|\S/,m=>t(m));originals.set(node,{raw,last:next});if(node.nodeValue!==next)node.nodeValue=next;}
 function element(el){if(!el.getAttribute||el.closest('script,style,[data-user-text],[data-language-control]'))return;let record=attributes.get(el)||{};for(const name of ['title','aria-label','placeholder','alt']){if(!el.hasAttribute(name))continue;const value=el.getAttribute(name),old=record[name],raw=old&&old.last===value?old.raw:value,next=t(raw);record[name]={raw,last:next};if(next!==value)el.setAttribute(name,next);}attributes.set(el,record);}
@@ -71,18 +80,22 @@ function visit(node){if(node.nodeType===3){textNode(node);return;}if(node.nodeTy
 function controls(){
  for(const option of document.querySelectorAll('.language-picker [data-lang]')) option.setAttribute('aria-pressed', String(option.dataset.lang === language));
  for(const b of document.querySelectorAll('button[data-language-control]')){b.textContent=language==='en'?'中文':'English';b.setAttribute('aria-label',language==='en'?'Switch to Chinese':'切换到英文');}}
-function setLanguage(next){language=next==='zh'?'zh':'en';document.documentElement.lang=language==='zh'?'zh-CN':'en';try{localStorage.setItem('crunch-language',language);const url=new URL(location.href);url.searchParams.set('lang',language);history.replaceState(null,'',url);}catch{}visit(document);controls();root.dispatchEvent(new CustomEvent('crunch-language-change',{detail:{language}}));}
+function setLanguage(next){language=normalizeLanguage(next);document.documentElement.lang=language==='zh'?'zh-CN':language;try{localStorage.setItem('crunch-language',language);const url=new URL(location.href);url.searchParams.set('lang',language);history.replaceState(null,'',url);}catch{}visit(document);controls();root.dispatchEvent(new CustomEvent('crunch-language-change',{detail:{language}}));}
 root.CrunchI18n={t,setLanguage,get language(){return language;},dictionary};
 if(typeof module!=='undefined'&&module.exports){module.exports={zh,dictionary};return;}
-document.documentElement.lang=language==='zh'?'zh-CN':'en';
-if(language==='zh')document.documentElement.classList.add('i18n-loading');
-for(const method of ['fillText','strokeText']){const proto=root.CanvasRenderingContext2D?.prototype;if(!proto)continue;const original=proto[method];proto[method]=function(text,...args){const old=this.font;if(language==='zh'){const size=old.match(/[\d.]+px/)?.[0]||'16px';this.font=size+' "PingFang SC","Microsoft YaHei",sans-serif';}try{return original.call(this,t(text),...args);}finally{this.font=old;}};}
+document.documentElement.lang=language==='zh'?'zh-CN':language;
+if(language!=='en')document.documentElement.classList.add('i18n-loading');
+for(const method of ['fillText','strokeText']){const proto=root.CanvasRenderingContext2D?.prototype;if(!proto)continue;const original=proto[method];proto[method]=function(text,...args){const old=this.font;if(language!=='en'){const size=old.match(/[\d.]+px/)?.[0]||'16px';this.font=size+' "PingFang SC","Microsoft YaHei",sans-serif';}try{return original.call(this,t(text),...args);}finally{this.font=old;}};}
 document.addEventListener('DOMContentLoaded',()=>{
- const bind=b=>{b.dataset.languageControl='true';b.addEventListener('click',()=>setLanguage(language==='en'?'zh':'en'));};
+ const picker=document.querySelector('.language-picker');
+ if(picker) for(const dialog of document.querySelectorAll('dialog')){
+   const copy=picker.cloneNode(true);
+   copy.classList.add('dialog-language-picker');
+   dialog.prepend(copy);
+ }
  for(const option of document.querySelectorAll('.language-picker [data-lang]')){
    option.addEventListener('click',()=>{if(option.dataset.lang!==language)setLanguage(option.dataset.lang);});
  }
- for(const dialog of document.querySelectorAll('dialog')){const b=document.createElement('button');b.type='button';b.className='language-dock';bind(b);dialog.append(b);}
  // Preserve user-provided names verbatim rather than treating them as interface copy.
  for(const el of document.querySelectorAll('[data-custom-player-name]' ))el.dataset.userText='true';
  setLanguage(language);
