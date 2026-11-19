@@ -85,7 +85,7 @@ root.CrunchI18n={t,setLanguage,get language(){return language;},dictionary};
 if(typeof module!=='undefined'&&module.exports){module.exports={zh,dictionary};return;}
 document.documentElement.lang=language==='zh'?'zh-CN':language;
 if(language!=='en')document.documentElement.classList.add('i18n-loading');
-for(const method of ['fillText','strokeText']){const proto=root.CanvasRenderingContext2D?.prototype;if(!proto)continue;const original=proto[method];proto[method]=function(text,...args){const old=this.font;if(language!=='en'){const size=old.match(/[\d.]+px/)?.[0]||'16px';this.font=size+' "PingFang SC","Microsoft YaHei",sans-serif';}try{return original.call(this,t(text),...args);}finally{this.font=old;}};}
+for(const method of ['fillText','strokeText']){const proto=root.CanvasRenderingContext2D?.prototype;if(!proto)continue;const original=proto[method];proto[method]=function(text,...args){const old=this.font;if(language!=='en'){const face=language==='zh-HK'?'TC':'SC';this.font=old.replace(/(\d+(?:\.\d+)?px).*/, '$1 "Fusion Pixel 10px Monospaced '+face+'", sans-serif');}try{return original.call(this,t(text),...args);}finally{this.font=old;}};}
 document.addEventListener('DOMContentLoaded',()=>{
  const picker=document.querySelector('.language-picker');
  if(picker) for(const dialog of document.querySelectorAll('dialog')){
