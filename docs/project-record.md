@@ -1,5 +1,5 @@
 # Project record
-Updated: 2026-11-16 · [Play online](https://sd5913.github.io/Hash-Brown-Catch/game/) · [Team board](https://github.com/orgs/sd5913/projects/6)
+Updated: 2026-11-19 · [Play online](https://sd5913.github.io/Hash-Brown-Catch/game/) · [Team board](https://github.com/orgs/sd5913/projects/6)
 
 This page brings together the team's development history, responsibilities, design decisions, feedback and next steps. Dates refer to actual discussions where available; review targets and source-import dates are separate.
 
@@ -9,9 +9,22 @@ This page brings together the team's development history, responsibilities, desi
 
 ## Current build
 
-The current prototype includes solo, same-screen VS and co-op, five difficulty choices, hazards, persistent browser-local coins, a starter cosmetic shop, photo-to-pixel avatars, a local Hall of Fame, ESC exit and a final-five-second countdown.
+The 2026-11-19 release imports the supplied complete game originally packaged as Stage-05 / Final Review. It includes six Career kitchens, four upgrade tracks, automated catching, magnet attraction, chef bonuses, the full cosmetic shop, pixel avatars, local ranking, solo and same-screen VS/co-op, clock Fever, coffee, cola and the rare double-coin Spud Imp.
 
-The source was imported on 2026-11-16 for the 2026-11-19 review target. Earlier prototype experiments included power-ups and a potato-dog surprise; those are not enabled in this scoped build. GitHub Pages was enabled and the live game was successfully started on 2026-11-16. Broader browser and device testing remains open.
+English and Chinese interfaces are selectable live, including menus, dialogs, dynamic HUD text, canvas labels and the player guide. Language choice is stored locally and does not restart the round. Game rules and browser-local saves are shared across both languages.
+
+The shop renderer applies a manual scene immediately and remembers that choice across reloads. Selecting or advancing to another Career stage restores the stage setting. Automated checks cover the source logic; a visual browser retest of purchase, equip and reload remains to be recorded.
+
+### Release and iteration labels
+
+| Display date | Iteration label | Scope |
+| --- | --- | --- |
+| 2026-11-12 | Complete round | Catch/avoid rules, difficulty, results and replay |
+| 2026-11-15 | Wallet and feedback | Persistent coins, cosmetic choices and progression proposals |
+| 2026-11-17 | Career integration | Restaurant progression, upgrades and customization refinements |
+| 2026-11-19 | Current complete bilingual release | Imported complete scope, live language switch, full scenes and updated guide |
+
+These intermediate display dates were supplied by the team for its iteration presentation. They are not backdated commits or independent evidence that every listed feature was implemented on that date. Existing discussion dates below and archived source branches remain intact.
 
 ## Team
 
@@ -78,13 +91,13 @@ The team identified a tradeoff: larger collectors make both rewards and hazards 
 - Crystal tried the two-player mode and clarified that both players use the same computer, with keyboard and mouse controls. This is local same-screen multiplayer; the conversation does not establish online networking.
 - Sherry forwarded the progression suggestions; Crystal proposed a hash-brown career theme and Renna supported exploring upgrade items. No implementation was confirmed.
 - Crystal reported that a purchased skin did not appear to apply. Renna independently reported trying it and observing the same problem.
-- The skin issue remains open in this record. The exact prototype, item, browser, reproduction steps, cause and successful fix are not yet established.
+- The team later entered a 17 November fix/retest report (see the feedback table). The original 16 November screenshots do not establish the affected item, browser or exact reproduction steps.
 
 
 
 ### 2026-11-16 — Publication and documentation
 
-GitHub Pages was enabled and the live game was started successfully. A direct Play link was added to the repository homepage. Development and feedback notes were consolidated into this page for easier assessment. The skin issue remains unresolved; publication is not a fix.
+GitHub Pages was enabled and the live game was started successfully. A direct Play link was added to the repository homepage. Development and feedback notes were consolidated into this page for easier assessment. Publication itself was not a skin fix. See the later team report and the 19 November source update.
 
 ## Feedback and open issues
 
@@ -98,11 +111,11 @@ Compiled on 2026-11-16 from supplied conversation screenshots. These are retrosp
 | 2026-11-12 | Sherry, internal team play | The clock interaction felt abrupt; suggested prominent countdown feedback. | Proposal recorded; no verified cause or before/after retest in the conversation. |
 | 2026-11-15; forwarded to team 2026-11-16 | External progression feedback | Suggested container upgrades, coin progression, automation, more collectors and staged restaurant progression. | Exploratory backlog. Team noted larger baskets also increase hazard exposure. |
 | 2026-11-16 | Crystal, internal team play | Tried the two-player prototype and described separate controls on one computer. | Record as local same-screen multiplayer. |
-| 2026-11-16 | Crystal and Renna, internal team play | Purchased skin did not appear to apply; Renna reported the same outcome after trying it. | Open reported defect; not marked fixed. |
-| 2026-11-17 | Sherry, internal team work | Fixed the skin purchase/equip failure; external players invited to playtest. | Verified fix: purchased skin applies correctly after retest. |
+| 2026-11-16 | Crystal and Renna, internal team play | Purchased skin did not appear to apply; Renna reported the same outcome after trying it. | Original defect report; see the later team-entered retest and current release notes. |
+| 2026-11-17 | Sherry, internal team work | Fixed the skin purchase/equip failure; external players invited to playtest. | Team-reported fix and successful retest. Device, browser and tested cosmetic were not recorded; this is not an independent verification. |
 
 
-### Open defect: purchased skin not visibly applied
+### Follow-up: purchased skin not visibly applied
 
 - Report date: 2026-11-16.
 - Reporters: Crystal and Renna.
@@ -110,7 +123,8 @@ Compiled on 2026-11-16 from supplied conversation screenshots. These are retrosp
 - Reported actual behavior: the selected skin did not appear to apply.
 - Still needed: affected build, cosmetic item, purchase/equip steps, game mode, browser, reload behavior and saved state.
 - Next verification: reproduce, distinguish ownership from equip state, verify rendering and persistence, and retest the affected item.
-- No code fix or successful retest is claimed by this documentation update.
+- 2026-11-17: team-entered report says the issue was fixed and retested; supporting reproduction detail remains incomplete.
+- 2026-11-19: imported the complete renderer and added persisted manual scene selection. Automated checks pass; live visual purchase/equip/reload retesting remains pending.
 
 
 
@@ -122,7 +136,7 @@ These are prepared source scopes imported in sequence on 2026-11-16, not backdat
 | --- | --- | --- |
 | 2026-11-05 | Gentle 30-second core interaction: movement, catch +10, miss -2 (minimum zero), animation, audio, mash/ghost feedback, pause and replay. No hazards or wallet UI. | [Core snapshot](https://github.com/sd5913/Hash-Brown-Catch/tree/review/core-interaction) |
 | 2026-11-12 | Complete round, burnt bites, bombs, five difficulty choices, acceleration, results and personal bests. | [Integrated snapshot](https://github.com/sd5913/Hash-Brown-Catch/tree/review/integrated-core) |
-| 2026-11-19 | Optimized starter shop, avatars, local ranking and same-screen play. Review is upcoming as of this update. | [Current source](https://github.com/sd5913/Hash-Brown-Catch/tree/main/game) |
+| 2026-11-19 | Complete Career, upgrades, shop, powers, avatars, local ranking, same-screen play and selectable English/Chinese UI. Superseded by the complete bilingual release on the same displayed review date. | [Current source](https://github.com/sd5913/Hash-Brown-Catch/tree/main/game) |
 
 ### Review feedback
 
@@ -134,7 +148,7 @@ The subsequent import provides source, setup, snapshots and checks; publication 
 
 | Action | Lead / review focus | Completion evidence |
 | --- | --- | --- |
-| Identify and fix the reported skin purchase/equip failure | Crystal: UI clarity; Renna: reproduction/regression; Sherry: concept consistency | Affected build/item, steps, before/after result and dated retest |
+| Retest the reported skin purchase/equip fix | Crystal: UI clarity; Renna: reproduction/regression; Sherry: concept consistency | Affected build/item, steps, before/after result and dated retest |
 | Test independent startup and a complete round | Renna coordinates; Crystal reviews instructions | Device/browser, tasks, help needed and observations |
 | Evaluate customization and replay motivation | Sherry coordinates concept review; team discusses | Player reasons, priority decision and any resulting change |
 | Record the 2026-11-19 review | All three, coordinated in the board | Actual tutor feedback, next owner and action |
@@ -164,7 +178,12 @@ Another person can start from the README; rules and feedback match the game; pur
 - Photos are processed client-side and optional pixel portraits stored locally.
 - Wider keyboard, touch, layout, audio and persistence compatibility remains to be tested. Automated logic checks do not establish usability.
 - Course mapping: input, sprites/frame selection and audio are in game/game.js; pure rules in game/game-core.js; avatars/ranking in game/arcade.js; coins/shop in game/economy.js and game/shop.js.
-- [Automated check output](tests/automated-results.txt): rerun from game/ with node check-stage.cjs, node check-rules.cjs and node check-innovations.cjs.
+- [Automated check output](tests/automated-results.txt): rerun from game/ with node check-stage.cjs, node check-rules.cjs, node check-progression.cjs, node check-innovations.cjs and node check-i18n.cjs.
 - [Credits and licenses](credits.md).
 
 The original source-import manifest is retained in docs/import-manifest.json for provenance. The final course deadline is 2026-12-06 at 23:59 HKT; this is not a claim of final submission.
+
+## 2026-11-19 source integration
+
+The user-supplied local Stage-05 folder was copied into the current game, including all nine background images and bundled runtime/font licenses. The original folder name is provenance, not the live release date. UI source copy was normalized to English; an embedded Chinese dictionary and dynamic-message rules supply the alternate interface. This work does not add new playtest participants or claim the 3 December review has occurred. Browser screenshots in the README retain their original captions/dates.
+

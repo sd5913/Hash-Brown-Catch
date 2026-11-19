@@ -2,6 +2,7 @@ const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const path=require('node:path');
 const R=require('./game-core.js');
+const E=require('./economy.js');
 const A=require('./arcade.js');
 
 const stagePath=path.join(__dirname,'check-stage.cjs');
@@ -93,11 +94,64 @@ test('Final 5-second countdown and (Stage >= 4) Alarm Clock 5-4-3-2-1 Fever Big 
   }
 });
 
-test('ESC exit handler and UI controls are wired in HTML and game.js',()=>{
+test('6-Stage Career ladder progresses from Street Cart through Wallace, BK, McD, KFC to Blue Frog',()=>{
+  A.resetCareer();
+  assert.deepEqual(A.CAREER_STAGES.map(s=>s.id),['street','wallace','burgerking','mcd','kfc','bluefrog']);
+  for(const st of A.CAREER_STAGES){
+    assert.equal(fs.existsSync(path.join(__dirname,st.asset)),true,'missing scene asset '+st.asset);
+  }
+  const spec0=A.careerRuntimeSpec(A.loadCareer());
+  assert.equal(spec0.tool.toolId,'spatula');
+  assert.equal(spec0.targetScore,80);
+  const s=R.newState(spec0.cfg,'career',spec0);
+  for(let i=0;i<8;i++)R.resolve(s,'golden',true,1);
+  assert.equal(s.score,80);
+  assert.equal(s.career.promoted,true);
+  const out=A.completeCareerShift(0,s.score,null);
+  assert.equal(out.cleared,true);
+  assert.equal(out.firstClear,true);
+  assert.equal(out.bonusCoins,35);
+  assert.equal(out.nextStage.id,'wallace');
+  assert.equal(A.loadCareer().unlockedStage,1);
+  A.resetCareer();
+});
+
+test('Upgrade Lab upgrades Spatula -> Paper Carton, Auto Sous-Chef Bot dodges bombs, and Crispy Magnet pulls only good items',()=>{
+  A.resetCareer();
+  const mockWallet={coins:300,debit(cost){if(this.coins<cost)return {ok:false,message:'short'};this.coins-=cost;return {ok:true};}};
+  const upTool=A.upgradeTrack('tool',mockWallet);
+  assert.equal(upTool.ok,true);
+  assert.equal(upTool.tier.toolId,'carton');
+  assert.equal(mockWallet.coins,255);
+  const upBot=A.upgradeTrack('bot',mockWallet);
+  assert.equal(upBot.ok,true);
+  assert.equal(upBot.tier.active,true);
+
+  // Magnet pulls golden item toward catcher, never pulls bomb
+  const catcher={x:500,y:485,w:136};
+  const gold={x:420,y:410,type:'golden'};
+  const bomb={x:420,y:410,type:'bomb'};
+  assert.equal(R.applyMagnet(gold,catcher,160,300,0.1,960),true);
+  assert.ok(gold.x>420);
+  assert.equal(R.applyMagnet(bomb,catcher,160,300,0.1,960),false);
+  assert.equal(bomb.x,420);
+
+  // Auto-Bot steers toward golden item while evading imminent bomb
+  const bot={x:500,y:485,w:100,speed:400,chasePowerups:true};
+  R.stepAutoBot(bot,[{x:650,y:380,w:46,speed:180,type:'golden'}],960,0.2);
+  assert.ok(bot.x>500);
+  const beforeDodge=bot.x;
+  R.stepAutoBot(bot,[{x:beforeDodge,y:400,w:48,speed:220,type:'bomb'}],960,0.2);
+  assert.notEqual(bot.x,beforeDodge);
+  A.resetCareer();
+});
+
+test('Universal scene loader, upgrade dialog, and ESC exit handler are wired cleanly',()=>{
   const html=fs.readFileSync(path.join(__dirname,'index.html'),'utf8');
   const js=fs.readFileSync(path.join(__dirname,'game.js'),'utf8');
-  for(const id of ['avatar-dialog','leaderboard-dialog','exit-button','avatar-file-input'])assert.ok(html.includes(id),'missing '+id);
+  for(const id of ['upgrade-dialog','avatar-dialog','leaderboard-dialog','exit-button','career-stage-list'])assert.ok(html.includes(id),'missing '+id);
   assert.ok(js.includes("e.key==='Escape'")&&js.includes('exitToMenu'),'missing Escape exit handler');
+  assert.ok(js.includes('new Image()')&&js.includes('p.clear()')&&js.includes("canvas[data-item]"),'missing universal scene loader or safe canvas[data-item] selector');
 });
 
 console.log(`${passed} innovation checks passed (Stage ${stage}).`);

@@ -10,3 +10,8 @@
 - Press Start 2P: CodeMan38, SIL Open Font License 1.1. Keep [the font license](../game/assets/Press-Start-2P-LICENSE.txt).
 
 Third-party licenses apply to their respective assets. No blanket open-source license is asserted for the team's entire project; use of a public repository does not itself grant a license to all original work.
+
+## Complete release assets (2026-11-19)
+
+The supplied Stage-05 package contributes all nine local diner/restaurant backdrops, the complete Career and upgrade code, power-ups and customization scope. Restaurant names are thematic references; no sponsorship or affiliation is claimed. English/Chinese localization was added during integration. Runtime assets and their included licenses remain bundled in game/assets/.
+

@@ -1,0 +1,22 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Hash Brown Catch - Guide</title><script src="i18n.js"></script><style>body{max-width:850px;margin:32px auto;padding:0 24px;background:#fff7e7;color:#603c29;font:17px/1.8 system-ui,sans-serif}a{color:#a53828}button{float:right;padding:8px 16px;background:#ffe1a2;border:1px solid #a53828;border-radius:6px;cursor:pointer}h2{border-top:1px solid #dec9a2;padding-top:20px}kbd,code{background:#f5e6c8;padding:2px 6px;border-radius:4px}[hidden]{display:none!important}</style></head><body>
+<button id="language-toggle" type="button">中文</button>
+<article id="guide-en" data-user-text>
+<h1>Hash Brown Catch - Player Guide</h1><p>Release: 19 November 2026 · <a href="index.html?lang=en">Return to the game</a></p>
+<h2>Start playing</h2><p>Choose Career, solo, versus or co-op, then start a shift. Move with the mouse, touch, arrow keys or A/D. Press Space or P to pause, Escape to return to the menu, and R on the results screen to replay.</p>
+<h2>Six-stage Career</h2><p>Start at the Street Stall, then progress through Wallace, Burger King, McD, KFC and Blue Frog. Reach the shift target to unlock the next kitchen and its background. Coins pay for wider catchers, an automatic second catcher, a magnet and chef skills. Bigger catchers also catch hazards more easily.</p>
+<h2>Scores, coins and power-ups</h2><p>A golden catch scores 10 points before upgrades; a miss costs 2, a burnt catch costs 10 and a bomb costs 20. Scores cannot fall below zero. A clock adds 5 seconds, up to 15 extra per round, and triggers a golden-only Fever with a large countdown. Fever catches score 15 before upgrades. Coffee slows falls for 4 active seconds; cola blocks one hazard. The rare Spud Imp doubles this round's coins.</p>
+<h2>Two players on one computer</h2><p>Player 1 uses A/D; Player 2 uses the arrow keys or mouse. Versus includes basket bumps. In co-op, alternate catches to earn a 5-point relay bonus. This is local same-screen play.</p>
+<h2>Shop, avatars and languages</h2><p>Buy and equip backgrounds, flavors, ghost colors and bomb looks in the Shop. A clicked background appears immediately; selecting another Career stage restores that stage's setting. Upload a photo, use a preset or take an optional webcam photo to create a 24-by-24 pixel avatar. Photos are processed in your browser. The header and each dialog have a language button. Switching language preserves the current round.</p>
+<h2>Saves and local startup</h2><p>Wallet, outfits, upgrades, avatars and rankings are saved in this browser. House targets are examples. Storage access is needed for saves. To play offline, download the whole repository, extract it, and run <code>python3 Launch-Game.py</code> from its root (Windows: <code>py -3 Launch-Game.py</code>). No API key or package installation is needed.</p>
+</article>
+<article id="guide-zh" data-user-text hidden>
+<h1>薯饼接接乐 · 玩家指南</h1><p>版本日期：2026年11月19日 · <a href="index.html?lang=zh">返回游戏</a></p>
+<h2>开始游玩</h2><p>选择升职闯关、单人经典、双人对战或双人合作，然后开始班次。使用鼠标、触控、方向键或左右字母键移动。空格键或暂停键可暂停，退出键可返回菜单，结算界面可按重玩键再来一局。具体键位见游戏下方提示。</p>
+<h2>六站升职路线</h2><p>从街边摊出发，依次晋升华莱士、汉堡王、麦当劳、肯德基和蓝蛙。达到班次目标后，解锁下一间厨房及对应背景。金币可升级接取工具、自动助手、磁铁与厨师技能。工具越大，也越容易误接危险物。</p>
+<h2>得分、金币与道具</h2><p>未升级时，接住金黄薯饼加10分；漏接扣2分，误接焦薯饼扣10分，炸弹扣20分。得分最低为零。闹钟增加5秒，单局累计最多增加15秒，并触发带醒目倒计时的狂热状态。狂热期间只掉落金黄薯饼，未升级时每次接取加15分。咖啡减缓下落，持续4秒游戏时间；可乐抵挡一次危险物。稀有的薯薯小捣蛋可使本局金币翻倍。</p>
+<h2>同一台电脑上的双人游戏</h2><p>玩家一使用左右字母键，玩家二使用方向键或鼠标。对战模式支持篮子碰撞；合作模式中交替接取可获得额外5分接力奖励。两人共用同一屏幕。</p>
+<h2>商店、头像与语言切换</h2><p>在商店购买并装备背景、口味、幽灵颜色与炸弹外观。点击背景会立即应用；主动切换闯关关卡后，恢复该关卡的场景。可上传照片、选择预设，或自愿使用摄像头拍照，制作24×24像素头像。照片在浏览器内处理。页面顶部及各弹窗都有语言按钮，切换时保留当前对局。</p>
+<h2>存档与本地启动</h2><p>钱包、外观、升级、头像和排行榜保存在当前浏览器。示例目标不是其他玩家的真实成绩。存档需要浏览器允许本地存储。离线游玩时，下载并解压整个仓库，从仓库根目录运行启动脚本即可，无需接口密钥或安装额外依赖。</p>
+</article>
+<script>function showGuide(){const zh=CrunchI18n.language==='zh';document.getElementById('guide-en').hidden=zh;document.getElementById('guide-zh').hidden=!zh;document.title=zh?'薯饼接接乐 · 玩家指南':'Hash Brown Catch - Player Guide';}window.addEventListener('crunch-language-change',showGuide);document.addEventListener('DOMContentLoaded',showGuide);</script>
+</body></html>

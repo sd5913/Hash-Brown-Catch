@@ -2,22 +2,30 @@
 
 A pixel-art breakfast arcade: catch golden hash browns, dodge burnt bites and bombs, and customize your potato.
 
-**[▶ PLAY ONLINE](https://sd5913.github.io/Hash-Brown-Catch/game/)** · **[PROJECT RECORD](docs/project-record.md)** · [Team board](https://github.com/orgs/sd5913/projects/6)
+**[▶ PLAY ONLINE](https://sd5913.github.io/Hash-Brown-Catch/game/)** · [English](https://sd5913.github.io/Hash-Brown-Catch/game/?lang=en) · [Chinese](https://sd5913.github.io/Hash-Brown-Catch/game/?lang=zh) · **[PROJECT RECORD](docs/project-record.md)** · [Team board](https://github.com/orgs/sd5913/projects/6)
 
 ## The game
 
-Solo or same-screen VS/co-op, adjustable difficulty, permanent local coins, a starter cosmetic shop, pixel avatars and a local Hall of Fame.
+Six-stage Career, solo and same-screen VS/co-op, adjustable arcade difficulty, permanent local coins, a full cosmetic shop, pixel avatars and a local Hall of Fame. Switch between complete English and Chinese interfaces using the language button in the header or a dialog.
 
 - Move with mouse/touch, arrows or A/D. Space/P pauses; ESC exits; R replays from results.
 - Golden catch: +10 score and +2 coins. Miss: -2; burnt catch: -10; bomb: -20. Score never drops below zero.
 - Two-player: P1 uses A/D; P2 uses arrows or mouse. VS includes basket bumps; alternating co-op catches earn +5 relay score.
 - Saves and rankings stay in the current browser. House targets are demo benchmarks.
 
-Current build: prepared for the **19 November review**, imported and published on **16 November 2026**. A reported skin purchase/equip problem remains open; see the project record.
+Current release: **19 November 2026**. Imported from the supplied complete build, originally packaged under a 3 December review folder. The release date does not change Git commit history.
+
+- Career: Street Stall → Wallace → Burger King → McD → KFC → Blue Frog, with promotion targets, wage multipliers, bonuses and unlockable backgrounds.
+- Upgrade catcher width, an automatic second catcher, magnet strength and chef skills using earned coins.
+- Clocks add 5 seconds (15 extra maximum per round) and trigger golden-only Fever; coffee slows drops; cola provides a shield. The rare Spud Imp doubles round coins.
+- Shop selections apply immediately. Manual backgrounds survive reload until a Career stage change restores the stage backdrop.
+- Existing Stage 03 wallet, avatars and local scores migrate when a new-version save does not yet exist. Career upgrades start separately.
+
+[Player guide](https://sd5913.github.io/Hash-Brown-Catch/game/delivery.html). Automated logic and localization checks are recorded below; full browser/device retesting remains outstanding.
 
 ## Screenshots
 
-Screens captured from the current review build on 16 November 2026.
+The first three images show the earlier prototype captured on 16 November 2026. The later team-supplied images illustrate ranking, Career and scene customization; they are retained as development evidence.
 
 ### Breakfast arcade
 
@@ -41,7 +49,7 @@ Character presets, pixel preview and palette controls for personalized potatoes.
 
 <img width="782" height="644" alt="image" src="https://github.com/user-attachments/assets/681f8abb-f6a2-4174-8db8-5078e9d8ff03" />
 
-Watch the players on the ranking list
+Local player rankings and clearly labeled sample targets.
 
 ### Promotion mode
 
@@ -53,7 +61,7 @@ Choose the promotion mode and challenge to enter high-end restaurants from stree
 
 <img width="835" height="699" alt="image" src="https://github.com/user-attachments/assets/bf101372-79a3-4648-a473-d5e8b311318b" />
 
-Buy a new background with the points obtained from the game
+Spend earned coins on backgrounds and equip them in the Shop.
 
 ## Team and development
 
@@ -85,6 +93,7 @@ Python 3 and a modern browser are required. Keep the terminal open; Ctrl+C stops
 | `docs/import-manifest.json` | Original source-import provenance |
 | Root launch files and `index.html` | Local startup and online entry |
 
-Optional checks: from `game/`, run `node check-stage.cjs`, `node check-rules.cjs` and `node check-innovations.cjs`. See [recorded output](docs/tests/automated-results.txt) and [credits](docs/credits.md).
+Optional checks: from `game/`, run `node check-stage.cjs`, `node check-rules.cjs`, `node check-progression.cjs`, `node check-innovations.cjs` and `node check-i18n.cjs`. See [recorded output](docs/tests/automated-results.txt) and [credits](docs/credits.md).
 
 Final course deadline: **6 December 2026, 23:59 HKT**.
+

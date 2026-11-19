@@ -1,17 +1,13 @@
-Actual source-import verification: 2026-11-16 (Hong Kong review context).
-Snapshot: 2026-11-19 review scope.
+Hash Brown Catch - 2026-11-19 release
+Checks run with Node.js. Source/logic coverage only; visual browser/device retesting remains pending.
 
-$ node check-innovations.cjs
-PASS 2P VS tracks independent player scores, hazards, and winner summary
-PASS 2P VS basket bump physics separates overlapping baskets and applies knockback
-PASS 2P Co-op awards +5 alternating relay bonus when P1 and P2 pass catches
-PASS Pixel Potato Avatar quantizer converts raw RGBA photo into valid 24x24 hex stream in both styles
-PASS Hall of Fame leaderboard ranks scores, embeds pixel portraits, and filters by play mode
-PASS Final 5-second countdown and (Stage >= 4) Alarm Clock 5-4-3-2-1 Fever Big Countdown work accurately
-PASS ESC exit handler and UI controls are wired in HTML and game.js
-7 innovation checks passed (Stage 3).
+PASS JavaScript syntax checks
 
-$ node check-rules.cjs
+check-stage.cjs
+PASS Stage 5: scoring, scope gates, collision and applicable progression rules.
+
+
+check-rules.cjs
 PASS golden catches add ten, misses cost two, score stays nonnegative
 PASS burnt and bomb penalties match the displayed rules
 PASS dodged hazards do not change score or a golden streak
@@ -24,8 +20,41 @@ PASS swept collision catches a fast crossing, but not a miss or object already b
 PASS custom settings are preserved and records distinguish difficulty and custom recipes
 10 rule checks passed.
 
-$ node check-stage.cjs
-PASS Stage 3: scoring, scope gates, collision and applicable progression rules.
 
-JavaScript syntax checks: PASS.
-No live user-study, phone-hardware or Mac/Windows launcher execution is claimed by these results.
+check-progression.cjs
+PASS wallet survives serialization with outfits and a custom ghost color
+PASS purchases debit once, equip owned cosmetics and never allow an overdraft
+PASS wallet transactions reject duplicates and invalid amounts
+PASS wallet coins are independent from score penalties
+PASS Spud Imp doubles past and future round coins, without doubling an existing wallet
+PASS missing a rare pup or a power-up has no penalty
+PASS a new run resets powers and coins while the separate wallet stays intact
+PASS clock bonuses cap at fifteen seconds per round
+PASS coffee lasts four real active seconds and refreshes without stacking
+PASS cola blocks exactly one hazard without breaking a streak
+PASS rare visit planning stays once per round and powers cannot change its spawned flag
+PASS corrupted or legacy save data cannot equip locked outfits or negative balances
+12 progression checks passed.
+
+
+check-innovations.cjs
+PASS 2P VS tracks independent player scores, hazards, and winner summary
+PASS 2P VS basket bump physics separates overlapping baskets and applies knockback
+PASS 2P Co-op awards +5 alternating relay bonus when P1 and P2 pass catches
+PASS Pixel Potato Avatar quantizer converts raw RGBA photo into valid 24x24 hex stream in both styles
+PASS Hall of Fame leaderboard ranks scores, embeds pixel portraits, and filters by play mode
+PASS Final 5-second countdown and (Stage >= 4) Alarm Clock 5-4-3-2-1 Fever Big Countdown work accurately
+PASS 6-Stage Career ladder progresses from Street Cart through Wallace, BK, McD, KFC to Blue Frog
+PASS Upgrade Lab upgrades Spatula -> Paper Carton, Auto Sous-Chef Bot dodges bombs, and Crispy Magnet pulls only good items
+PASS Universal scene loader, upgrade dialog, and ESC exit handler are wired cleanly
+9 innovation checks passed (Stage 5).
+
+
+check-i18n.cjs
+PASS all authored static screen text and accessibility labels have Chinese coverage
+PASS all restaurant, gear, cosmetic and difficulty data are translated
+PASS dynamic shop, wallet, upgrade, promotion and Fever messages stay Chinese
+PASS translation matches whole words and Chinese punctuation does not corrupt decimals
+PASS all referenced local assets and bilingual runtime files exist
+PASS live language changes restore English and preserve canvas drawing state
+6 localization checks passed. These are source/logic checks, not visual browser QA.
