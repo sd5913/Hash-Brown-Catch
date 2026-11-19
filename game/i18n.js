@@ -64,11 +64,13 @@ function zh(raw){
  return s;
 }
 function t(value){const raw=String(value??'');if(language==='en')return raw;if(!cache.has(raw))cache.set(raw,zh(raw));return cache.get(raw);}
-function skip(node){return node.parentElement?.closest('script,style,kbd,[data-user-text],[data-language-control]');}
+function skip(node){return node.parentElement?.closest('script,style,kbd,.brand,[data-user-text],[data-language-control]');}
 function textNode(node){if(skip(node)||!node.nodeValue?.trim())return;const old=originals.get(node);const raw=old&&old.last===node.nodeValue?old.raw:node.nodeValue;const next=raw.replace(/\S[\s\S]*\S|\S/,m=>t(m));originals.set(node,{raw,last:next});if(node.nodeValue!==next)node.nodeValue=next;}
 function element(el){if(!el.getAttribute||el.closest('script,style,[data-user-text],[data-language-control]'))return;let record=attributes.get(el)||{};for(const name of ['title','aria-label','placeholder','alt']){if(!el.hasAttribute(name))continue;const value=el.getAttribute(name),old=record[name],raw=old&&old.last===value?old.raw:value,next=t(raw);record[name]={raw,last:next};if(next!==value)el.setAttribute(name,next);}attributes.set(el,record);}
 function visit(node){if(node.nodeType===3){textNode(node);return;}if(node.nodeType!==1&&node.nodeType!==9)return;element(node);const walker=document.createTreeWalker(node,NodeFilter.SHOW_ELEMENT|NodeFilter.SHOW_TEXT);while(walker.nextNode()){const n=walker.currentNode;n.nodeType===3?textNode(n):element(n);}}
-function controls(){for(const b of document.querySelectorAll('[data-language-control]')){b.textContent=language==='en'?'中文':'English';b.setAttribute('aria-label',language==='en'?'Switch to Chinese':'切换到英文');}}
+function controls(){
+ for(const option of document.querySelectorAll('.language-picker [data-lang]')) option.setAttribute('aria-pressed', String(option.dataset.lang === language));
+ for(const b of document.querySelectorAll('button[data-language-control]')){b.textContent=language==='en'?'中文':'English';b.setAttribute('aria-label',language==='en'?'Switch to Chinese':'切换到英文');}}
 function setLanguage(next){language=next==='zh'?'zh':'en';document.documentElement.lang=language==='zh'?'zh-CN':'en';try{localStorage.setItem('crunch-language',language);const url=new URL(location.href);url.searchParams.set('lang',language);history.replaceState(null,'',url);}catch{}visit(document);controls();root.dispatchEvent(new CustomEvent('crunch-language-change',{detail:{language}}));}
 root.CrunchI18n={t,setLanguage,get language(){return language;},dictionary};
 if(typeof module!=='undefined'&&module.exports){module.exports={zh,dictionary};return;}
@@ -77,7 +79,9 @@ if(language==='zh')document.documentElement.classList.add('i18n-loading');
 for(const method of ['fillText','strokeText']){const proto=root.CanvasRenderingContext2D?.prototype;if(!proto)continue;const original=proto[method];proto[method]=function(text,...args){const old=this.font;if(language==='zh'){const size=old.match(/[\d.]+px/)?.[0]||'16px';this.font=size+' "PingFang SC","Microsoft YaHei",sans-serif';}try{return original.call(this,t(text),...args);}finally{this.font=old;}};}
 document.addEventListener('DOMContentLoaded',()=>{
  const bind=b=>{b.dataset.languageControl='true';b.addEventListener('click',()=>setLanguage(language==='en'?'zh':'en'));};
- const header=document.getElementById('language-toggle');if(header)bind(header);
+ for(const option of document.querySelectorAll('.language-picker [data-lang]')){
+   option.addEventListener('click',()=>{if(option.dataset.lang!==language)setLanguage(option.dataset.lang);});
+ }
  for(const dialog of document.querySelectorAll('dialog')){const b=document.createElement('button');b.type='button';b.className='language-dock';bind(b);dialog.append(b);}
  // Preserve user-provided names verbatim rather than treating them as interface copy.
  for(const el of document.querySelectorAll('[data-custom-player-name]' ))el.dataset.userText='true';
