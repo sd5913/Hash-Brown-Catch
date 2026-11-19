@@ -225,3 +225,16 @@ html:lang(zh) .header-right .open-sign {
   letter-spacing: normal;
 }
 dialog .dialog-language-picker { display: flex; width: max-content; margin: 8px 56px 8px auto; }
+
+/* Use the region-specific bitmap face for Chinese header text. */
+.site-header :lang(zh-CN) { --header-cjk: "Fusion Pixel 10px Monospaced SC", "PingFang SC", sans-serif; }
+.site-header :lang(zh-HK) { --header-cjk: "Fusion Pixel 10px Monospaced TC", "PingFang HK", sans-serif; }
+html:lang(zh) .header-right .arcade-pill,
+html:lang(zh) .header-right .open-sign,
+html:lang(zh) .header-right .wallet-button > span,
+html:lang(zh) .header-right #how-button,
+.site-header .language-picker button:lang(zh) {
+  font-family: var(--header-cjk) !important;
+  font-size: 11px;
+  font-weight: 400;
+}
