@@ -190,3 +190,27 @@
   .board-score{font-size:10px}
   .mode-tab small{display:none}
 }
+
+/* Header controls use readable interface type in both languages. */
+.site-header { flex-wrap: wrap; gap: 14px 24px; }
+.site-header .header-right { flex: 1 1 auto; min-width: 0; gap: 8px; }
+.header-right .arcade-pill,
+.header-right .wallet-button,
+.header-right .text-button,
+.header-right .open-sign {
+  font-family: system-ui, "PingFang SC", "Microsoft YaHei", sans-serif;
+  line-height: 1.35;
+}
+.header-right button { min-height: 40px; }
+.header-right .arcade-pill,
+.header-right .wallet-button > span { font: 650 15px/1.35 system-ui, "PingFang SC", "Microsoft YaHei", sans-serif; }
+.header-right .arcade-pill { justify-content: center; padding: 8px 11px; }
+.header-right .arcade-pill i { font-size: 16px; }
+.header-right .wallet-button b { font-size: 16px; font-variant-numeric: tabular-nums; }
+.header-right .text-button { font-size: 15px; }
+.header-right .open-sign { font-size: 13px; letter-spacing: .02em; }
+@media (max-width: 800px) {
+  .site-header .header-right { flex-basis: 100%; justify-content: flex-start; }
+  .header-right .arcade-pill span { display: inline; }
+  .header-right button { min-height: 44px; }
+}
