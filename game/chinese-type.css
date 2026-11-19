@@ -12,3 +12,6 @@ html:lang(zh) :is(main, dialog, article) h1,
 html:lang(zh) :is(main, dialog, article) h1 * {
   font-family: var(--game-cjk) !important;
 }
+
+html:lang(zh) .mode-tab strong { font-size: 15px; font-weight: 700; line-height: 1.4; }
+html:lang(zh) .mode-tab small { font-size: 12px; font-weight: 500; line-height: 1.35; }
