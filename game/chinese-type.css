@@ -15,3 +15,15 @@ html:lang(zh) :is(main, dialog, article) h1 * {
 
 html:lang(zh) .mode-tab strong { font-size: 15px; font-weight: 700; line-height: 1.4; }
 html:lang(zh) .mode-tab small { font-size: 12px; font-weight: 500; line-height: 1.35; }
+
+html:lang(zh) #welcome-headline,
+html:lang(zh) #welcome-headline *,
+html:lang(zh) #help-dialog .mini-label,
+html:lang(zh) #help-dialog h2 {
+  font-family: var(--game-cjk) !important;
+}
+html:lang(zh) :is(.career-upgrade-cta, .quick-upgrade-btn, .chip-button, .small-button) {
+  font-size: 11px;
+  line-height: 1.4;
+}
+html:lang(zh) .primary-button { font-size: max(12px, 0.8rem); }
