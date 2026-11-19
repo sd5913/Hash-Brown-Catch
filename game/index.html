@@ -10,8 +10,8 @@
 <link href="assets/favicon.svg" rel="icon" type="image/svg+xml"/>
 <link href="style.css" rel="stylesheet"/>
 <link href="shop.css" rel="stylesheet"/>
-<link href="arcade.css" rel="stylesheet"/>
-<script src="i18n.js"></script>
+<link href="arcade.css?v=header3" rel="stylesheet"/>
+<script src="i18n.js?v=header3"></script>
 <script defer="" src="assets/p5.min.js"></script>
 <script defer="" src="game-core.js"></script>
 <script defer="" src="economy.js"></script>
@@ -26,7 +26,9 @@
 <header class="site-header">
   <a aria-label="Crunch Club home" class="brand" href="#"><span aria-hidden="true" class="brand-mark">✦</span><span>CRUNCH CLUB<small>THE BREAKFAST ARCADE</small></span></a>
   <div class="header-right">
-    <button id="language-toggle" class="arcade-pill" type="button" aria-label="Switch language">中文</button>
+    <div class="language-picker" role="group" aria-label="Language / 语言" data-language-control>
+      <button type="button" lang="en" data-lang="en" aria-pressed="false">EN</button><button type="button" lang="zh-CN" data-lang="zh" aria-pressed="false">中文</button>
+    </div>
     <span class="open-sign"><i></i> CAREER &amp; 1P/2P</span>
     <button aria-label="Open catcher and automation upgrade lab" class="arcade-pill upgrade-pill" id="upgrade-button" type="button"><i aria-hidden="true">⚡</i><span>UPGRADES</span></button>
     <button aria-label="Customize pixel potato avatar" class="arcade-pill" id="avatar-button" type="button"><i aria-hidden="true">✦</i><span>PIXEL FACE</span></button>
