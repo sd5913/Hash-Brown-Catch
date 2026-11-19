@@ -215,15 +215,15 @@
   .header-right button { min-height: 44px; }
 }
 
-/* Give Chinese action labels more room at small screen sizes. */
+/* Match Chinese navigation labels to the career stage title. */
 html:lang(zh) .header-right .arcade-pill:not(#language-toggle),
 html:lang(zh) .header-right .wallet-button > span,
 html:lang(zh) .header-right .text-button {
-  font-size: 16px;
+  font-size: 12px;
   line-height: 1.45;
 }
 html:lang(zh) .header-right .open-sign {
-  font-size: 16px;
+  font-size: 12px;
   letter-spacing: normal;
 }
 
@@ -247,6 +247,8 @@ html:lang(zh) .header-right .open-sign {
 .language-picker button:focus-visible { outline: 2px solid #352318; outline-offset: -3px; }
 html:lang(zh) .header-right .arcade-pill span,
 html:lang(zh) .header-right .wallet-button > span,
-html:lang(zh) .header-right #how-button { font-size: 16px; line-height: 1.4; }
+html:lang(zh) .header-right #how-button { font-size: 12px; line-height: 1.4; }
+
+html:lang(zh) .header-right .language-picker button:lang(zh) { font-size: 12px; }
 
 dialog .dialog-language-picker { display: flex; width: max-content; margin: 8px 56px 8px auto; }
