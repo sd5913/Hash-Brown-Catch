@@ -37,6 +37,24 @@ Two players share one screen, with separate baskets and score displays.
 
 Character presets, pixel preview and palette controls for personalized potatoes.
 
+### Top Potato Leaderboard
+
+<img width="782" height="644" alt="image" src="https://github.com/user-attachments/assets/681f8abb-f6a2-4174-8db8-5078e9d8ff03" />
+
+Watch the players on the ranking list
+
+### Promotion mode
+
+<img width="1263" height="776" alt="image" src="https://github.com/user-attachments/assets/69795b3d-324d-4dd6-8f60-0e918d51fe6d" />
+
+Choose the promotion mode and challenge to enter high-end restaurants from street stalls.
+
+### Switch to new scenes
+
+<img width="835" height="699" alt="image" src="https://github.com/user-attachments/assets/bf101372-79a3-4648-a473-d5e8b311318b" />
+
+Buy a new background with the points obtained from the game
+
 ## Team and development
 
 | Member | GitHub | Focus |
