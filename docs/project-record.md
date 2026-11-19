@@ -31,7 +31,7 @@ These intermediate display dates were supplied by the team for its iteration pre
 
 | Member | GitHub | Responsibilities and recorded contributions |
 | --- | --- | --- |
-| CHEN Yueru (Crystal) | [@Crystalll0](https://github.com/Crystalll0) | Developed the pixel-art diner look, iterated on playable prototypes and proposed the coin shop and Career theme. Coordinated the project board, shared demos, tested same-screen controls and reported a skin that failed to equip. |
+| CHEN Yueru (Crystal) | [@Crystalll0](https://github.com/Crystalll0) | Visual direction, prototype preparation, coordination, integration of team feedback, sharing playable alternatives, skin issue reporting, GitHub updates, website visual refinements and typography adjustments. |
 | MA Qianran (Renna) | [@maqianran](https://github.com/maqianran) | Internal playtesting, inviting additional players, gameplay feedback, early potato-dog suggestion and confirming the skin issue. |
 | LI Jiarui (Sherry) | [@SherryLi919](https://github.com/SherryLi919) | Initial game brief, concept and interaction extensions, character experiments, sharing feedback and the optimized package, and initial goal-card preparation. |
 
