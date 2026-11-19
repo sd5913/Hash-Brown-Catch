@@ -226,3 +226,25 @@ html:lang(zh) .header-right .open-sign {
   font-size: 16px;
   letter-spacing: normal;
 }
+
+.language-picker {
+  display: inline-flex;
+  flex-shrink: 0;
+  padding: 3px;
+  border: 2px solid #733e2b;
+  background: #fff2d6;
+  box-shadow: 2px 2px 0 #bc945e;
+}
+.language-picker button {
+  min-width: 48px;
+  padding: 5px 8px;
+  border: 0;
+  background: transparent;
+  color: #66351d;
+  font: 700 16px/1.25 system-ui, sans-serif;
+}
+.language-picker button[aria-pressed="true"] { background: #973b24; color: #fff8eb; }
+.language-picker button:focus-visible { outline: 2px solid #352318; outline-offset: -3px; }
+html:lang(zh) .header-right .arcade-pill span,
+html:lang(zh) .header-right .wallet-button > span,
+html:lang(zh) .header-right #how-button { font-size: 21px; line-height: 1.4; }
