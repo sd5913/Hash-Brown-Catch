@@ -214,3 +214,15 @@
   .header-right .arcade-pill span { display: inline; }
   .header-right button { min-height: 44px; }
 }
+
+/* Give Chinese action labels more room at small screen sizes. */
+html:lang(zh) .header-right .arcade-pill:not(#language-toggle),
+html:lang(zh) .header-right .wallet-button > span,
+html:lang(zh) .header-right .text-button {
+  font-size: 19px;
+  line-height: 1.45;
+}
+html:lang(zh) .header-right .open-sign {
+  font-size: 16px;
+  letter-spacing: normal;
+}
